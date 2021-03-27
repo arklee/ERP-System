@@ -6,7 +6,6 @@ import {
     UserOutlined
 } from '@ant-design/icons';
 import './index.css'
-import logo from './logo.png'
 import { withRouter } from "react-router-dom";
 
 const { Sider } = Layout
@@ -23,7 +22,7 @@ class SidebarAll extends Component {
     };
 
     toHome = () => {
-        this.props.history.push('/main/home')
+        this.props.history.push('/hr/search/home')
     }
 
     handleClick = e => {
@@ -34,22 +33,7 @@ class SidebarAll extends Component {
         const { collapsed } = this.state;
         return (
             <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-                <a style={{
-                        lineHeight: '64rpx',
-                        display: 'flex',
-                        height: 64,
-                        color: 'rgba(255, 255, 255, 0.65)',
-                        alignItems: 'center',
-                    }}
-                    href="https://preview.pro.ant.design/dashboard/analysis"
-                >
-                    <img src={logo} style={{
-                        width: 32,
-                        height: 32,
-                        margin: '16px',
-                    }} alt=''/>
-                    <div>员工查</div>
-                </a>
+                <div className="logo" onClick={this.toHome}/>
                 <Menu
                     mode="inline"
                     defaultSelectedKeys={['1']}
