@@ -23,17 +23,20 @@ class Judge extends Component {
                 {
                     judge.map(item => {
                         return (
-                            <Descriptions title={item.id} bordered>
-                                <Descriptions.Item  label="公司">{item.company}</Descriptions.Item>
-                                <Descriptions.Item  label="HR姓名">{item.hrName}</Descriptions.Item>
-                                <Descriptions.Item  label="HR ID">{item.hrID}</Descriptions.Item>
-                                <Descriptions.Item label="评价">{item.statement}</Descriptions.Item>
-                            </Descriptions>
+                            <>
+                                <Descriptions title={"评价编号："+item.id} bordered>
+                                    <Descriptions.Item  label="公司">{item.company}</Descriptions.Item>
+                                    <Descriptions.Item  label="HR姓名">{item.hrName}</Descriptions.Item>
+                                    <Descriptions.Item  label="HR ID">{item.hrID}</Descriptions.Item>
+                                    <Descriptions.Item label="评价">{item.statement}</Descriptions.Item>
+                                </Descriptions>
+                                <Divider/>
+                            </>
                         )
                     })
                 }
             </div>
-        )
+        );
     }
 }
 
