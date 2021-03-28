@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {PageHeader, Tabs, Divider} from 'antd';
+import {PageHeader} from 'antd';
 import Content from "./Content";
 import Extra from "./Extra";
 import MyCollectionsPage from "./MyCollectionsPage";
 
-const { TabPane } = Tabs;
 
 class InfoHeader extends Component {
     state = {
@@ -18,7 +17,8 @@ class InfoHeader extends Component {
             email: "412344324@xx.com",
             password: "1234567",
             isVIP: true,
-            searchTimes: 20
+            searchTimes: 20,
+            score: 64
         }
     }
 
@@ -30,16 +30,7 @@ class InfoHeader extends Component {
                 onBack={() => window.history.back()}
                 title={hrInfo.name + "的账户信息"}
                 subTitle="查看我的账户、VIP、公司信息"
-                extra={<MyCollectionsPage hrInfo={hrInfo}/>}
-                footer={
-                    <>
-                        <Divider/>
-                        <Tabs defaultActiveKey="1">
-                            <TabPane tab="待定" key="1"/>
-                            <TabPane tab="待定" key="2"/>
-                        </Tabs>
-                    </>
-                }>
+                extra={<MyCollectionsPage hrInfo={hrInfo}/>}>
                 <Content hrInfo={hrInfo}/>
                 <Extra hrInfo={hrInfo}/>
             </PageHeader>

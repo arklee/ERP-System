@@ -7,15 +7,20 @@ function SuccessCreate(props) {
             <Result
                 status="success"
                 title="录入成功"
-                subTitle="姓名：李翔、身份证号：342421199502030715的员工信息已成功录入，具体信息如下"
+                subTitle={"姓名："+props.info.name+"、身份证号："+props.info.id+"的员工信息已成功录入，具体信息如下"}
             />
             <NewDocument info={props.info}/>
         </div>
     )
     else return (
-        <>
-            待定
-        </>
+        <div>
+            <Result
+                status="info"
+                title="点击上方按钮录入员工信息"
+                subTitle="内容示例如下"
+            />
+            <NewDocument info={props.info}/>
+        </div>
     )
 }
 

@@ -7,8 +7,7 @@ const { Content } = Layout;
 
 class InputContents extends Component {
 
-    state = {isSuccess:false,info:{}}
-    //info:{name:'未知',id:'未知',sex:'未知',nationality:'未知',nation:'未知',degree:'未知',major:'未知',College:"未知",graduatedTime:"未知"}
+    state = {isSuccess:false,info:{name:'未知',id:'未知',sex:'未知',nationality:'未知',nation:'未知',degree:'未知',major:'未知',College:"未知",graduatedTime:"未知"}}
 
     success = (ok,inf) => {
         this.setState({isSuccess:ok,info:inf})
@@ -31,7 +30,7 @@ class InputContents extends Component {
                                 subTitle="点击按钮录入新员工的基本信息"
                             />
                             <CollectionsPage success={this.success}/>
-                            <Divider />
+                            <Divider/>
                             <SuccessCreate isSuccess={this.state.isSuccess} info={this.state.info}/>
                         </Content>
                     </Layout>

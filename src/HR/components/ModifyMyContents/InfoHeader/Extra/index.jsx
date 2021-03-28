@@ -13,7 +13,8 @@ class Extra extends Component {
                 }}
             >
                 <Statistic title="会员状态" value={hrInfo.isVIP? "VIP用户":"普通用户"} style={{marginRight: 32,}}/>
-                <Statistic title="可查寻次数" value={hrInfo.isVIP? "不限":hrInfo.searchTimes} />
+                <Statistic title="可查寻次数" value={hrInfo.isVIP? "不限":hrInfo.searchTimes} style={{marginRight: 32,}}/>
+                <Statistic title="当前积分" value={hrInfo.score} style={{marginRight: 32,}}/>
             </div>
         );
     }
