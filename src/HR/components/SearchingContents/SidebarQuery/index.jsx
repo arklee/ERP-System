@@ -36,7 +36,7 @@ class Sidebar extends Component {
                     <Menu.Item key="exam" icon={<IdcardFilled />}>绩效信息查询</Menu.Item>
                     <Menu.Item key="attending" icon={<ScheduleFilled />}>考勤信息查询</Menu.Item>
                     <Menu.Item key="judge" icon={<StarFilled />}>评价查询</Menu.Item>
-                    <Menu.Item key="security" icon={<LockFilled />}>总览</Menu.Item>
+                    <Menu.Item key="overall" icon={<LockFilled />}>总览</Menu.Item>
                 </Menu>
             </Sider>
         )

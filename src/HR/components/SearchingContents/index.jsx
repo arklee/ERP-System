@@ -7,7 +7,7 @@ import Train from "./Train";
 import Document from "./Document";
 import Attending from "./Attending";
 import Exam from "./Exam";
-import Security from "./Security";
+import Overall from "./Overall";
 import Judge from "./Judge";
 import Home from "./Home";
 
@@ -25,7 +25,7 @@ class SearchingContents extends Component {
         exam:'绩效信息查询',
         attending:'考勤信息查询',
         judge:'评价查询',
-        security:'总览'
+        overall:'总览'
     }
 
     handleQuery = (key) => {
@@ -48,7 +48,7 @@ class SearchingContents extends Component {
                             <Route path="/hr/search/document" component={Document}/>
                             <Route path="/hr/search/attending" component={Attending}/>
                             <Route path="/hr/search/exam" component={Exam}/>
-                            <Route path="/hr/search/security" component={Security}/>
+                            <Route path="/hr/search/overall" component={Overall}/>
                             <Route path="/hr/search/judge" component={Judge}/>
                             <Redirect to="/hr/search/home"/>
                         </Switch>
