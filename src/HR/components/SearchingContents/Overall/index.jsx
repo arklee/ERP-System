@@ -1,31 +1,34 @@
-import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import React, {Component} from 'react';
 
-// Create styles
-const styles = StyleSheet.create({
-    page: {
-        flexDirection: 'row',
-        backgroundColor: '#E4E4E4'
-    },
-    section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
+import CV from 'react-cv'
+
+class Overall extends Component {
+    render() {
+        return (
+            <CV
+                personalData={{
+                    name: 'John Doe',
+                    title: 'Senior Software Developer',
+                    image: 'https://bulma.io/images/placeholders/128x128.png',
+                    contacts: [
+                        { type: 'email', value: 'john@example.com' },
+                        { type: 'phone', value: '+00 (123) 456 78 90' },
+                        { type: 'location', value: 'New York' },
+                        { type: 'website', value: 'example.com' },
+                        { type: 'linkedin', value: 'linkedin.com/in/notexists' },
+                        { type: 'twitter', value: 'twitter.com/404' },
+                        { type: 'github', value: 'github.com/404' }
+                    ]}}
+                sections= {[{
+                    type: 'text',
+                    title: 'Career Profile',
+                    content: 'When I was child, I always want to be a developer.',
+                    icon: 'usertie'
+                }]}
+                branding={true} // or false to hide it.
+            />
+        );
     }
-});
-
-// Create Document Component
-const Overall = () => (
-    <Document>
-        <Page size="A4" style={styles.page}>
-            <View style={styles.section}>
-                <Text>Section #1</Text>
-            </View>
-            <View style={styles.section}>
-                <Text>Section #2</Text>
-            </View>
-        </Page>
-    </Document>
-);
+}
 
 export default Overall;
