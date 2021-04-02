@@ -27,16 +27,12 @@ class Login extends Component {
         console.log('Failed:', errorInfo);
     };
 
-    login = ()=>{
-        //push跳转+携带params参数
-        // this.props.history.push(`/home/message/detail/${id}/${title}`)
-
-        //push跳转+携带search参数
-        // this.props.history.push(`/home/message/detail?id=${id}&title=${title}`)
-
-        //push跳转+携带state参数
+    loginHR = ()=>{
         this.props.history.push(`/hr`)
+    }
 
+    loginStf = ()=>{
+        this.props.history.push(`/stuff`)
     }
 
     render() {
@@ -90,8 +86,11 @@ class Login extends Component {
 
                     <Form.Item {...tailLayout}>
                         <Space size="large">
-                            <Button type="primary" htmlType="submit" block={true} onClick={this.login}>
-                                登录
+                            <Button type="primary" htmlType="submit" block={true} onClick={this.loginHR}>
+                                HR登录
+                            </Button>
+                            <Button type="primary" htmlType="submit" block={true} onClick={this.loginStf}>
+                                员工登录
                             </Button>
                             <Button htmlType="submit" block={true}>
                                 注册
