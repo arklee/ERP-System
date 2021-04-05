@@ -9,7 +9,7 @@ const { Content } = Layout;
 
 class ModifyMyContents extends Component {
 
-    state = {dataSource:[], rate:0.025, detail:false, id:0}
+    state = {dataSource:[], detail:false, id:0}
 
     columns = [
         {title: '员工ID', dataIndex: 'stuff_id', key: 'stuff_id',},
@@ -35,7 +35,7 @@ class ModifyMyContents extends Component {
     componentDidMount() {
         axios.get('http://localhost:3000/account')
             .then(response => {
-                this.setState({dataSource:response.data})
+                this.setState({dataSource:response.data.data, rate:response.data.rate})
             })
     }
 
