@@ -20,7 +20,7 @@ class Home extends Component {
                     <Col span={8}>
                         <Card
                             hoverable
-                            style={{ width: 360 }}
+                            style={{ width: 240 }}
                             cover={<img alt="example" src={p1} />}
                             title="建筑公司"
                         >
@@ -30,7 +30,7 @@ class Home extends Component {
                     <Col span={8}>
                         <Card
                             hoverable
-                            style={{ width: 360 }}
+                            style={{ width: 240 }}
                             cover={<img alt="example" src={p3} />}
                             title="电子企业"
                         >
@@ -40,7 +40,7 @@ class Home extends Component {
                     <Col span={8}>
                         <Card
                             hoverable
-                            style={{ width: 360 }}
+                            style={{ width: 240 }}
                             cover={<img alt="example" src={p2} />}
                             title="能源企业"
                         >

@@ -1,26 +1,42 @@
 import React, {Component} from 'react';
-import {Breadcrumb, Col, Row, Divider, Layout, Button, Table} from "antd";
+import {Breadcrumb, Col, Row, Divider, Layout, Button, Table, Modal} from "antd";
 import InfoHeader from "./InfoHeader";
 import './index.css'
 import ComplainRate from "./ComplainRate";
+import axios from "axios";
 
 const { Content } = Layout;
 
-const columns = [
-    {title: '员工ID', dataIndex: 'stuff_id', key: 'stuff_id',},
-    {title: '员工姓名', dataIndex: 'stuff_name', key: 'stuff_name',},
-    {title: '评价id', dataIndex: 'judge_id', key: 'judge_id',},
-    {title: '反馈内容', dataIndex: 'content', key: 'content',},
-    {title: '详细信息', dataIndex: 'detail', key: 'detail', render: text => <Button type="primary">{text}</Button>}
-];
-
 class ModifyMyContents extends Component {
 
-    state = {dataSource:[
-            {stuff_name:"茗栋",stuff_id:"135",judge_id:"123",content:"我认为，该评价中xxxxxxxxxxx不符实际",detail: '查看详情'},
-            {stuff_name:"翔",stuff_id:"425",judge_id:"125",content:"我认为，该评价中xxxasddasd不符实际",detail: '查看详情'},
-            {stuff_name:"方舟",stuff_id:"235",judge_id:"433",content:"我认为，该评价中xxv32424xxx不符实际",detail: '查看详情'}],
-        rate:0.025
+    state = {dataSource:[], rate:0.025, detail:false, id:0}
+
+    columns = [
+        {title: '员工ID', dataIndex: 'stuff_id', key: 'stuff_id',},
+        {title: '员工姓名', dataIndex: 'stuff_name', key: 'stuff_name',},
+        {title: '评价id', dataIndex: 'judge_id', key: 'judge_id',},
+        {title: '反馈内容', dataIndex: 'content', key: 'content',},
+        {title: '详细信息', dataIndex: 'detail', key: 'detail', render: () => <Button type="primary" onClick={this.info}>查看详情</Button>}
+    ];
+
+    info = () => {
+        Modal.info({
+            title: 'This is a notification message',
+            content: (
+                <div>
+                    <p>some messages...some messages...</p>
+                    <p>some messages...some messages...</p>
+                </div>
+            ),
+            onOk() {},
+        });
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/account')
+            .then(response => {
+                this.setState({dataSource:response.data})
+            })
     }
 
     render() {
@@ -38,7 +54,7 @@ class ModifyMyContents extends Component {
                         <div className="feed-title">我收到的员工反馈/投诉率</div>
                         <Row>
                             <Col span={18}>
-                                <Table dataSource={dataSource} columns={columns}/>
+                                <Table dataSource={dataSource} columns={this.columns}/>
                             </Col>
                             <Col span={6}>
                                 <ComplainRate rate={rate}/>
