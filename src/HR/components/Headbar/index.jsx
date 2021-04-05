@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Button, AutoComplete, Layout, Space, Row, Divider, Typography } from "antd";
+import axios from 'axios'
 
 const { Text } = Typography;
 const {Header} = Layout
@@ -7,12 +8,23 @@ const {Header} = Layout
 export default class Headbar extends Component {
     state = {
         current:{name:'李翔',id:'xxxx-0715'},
-        options:[
-            {value: '李翔'},
-            {value: '张三'},
-            {value: '李小平'},
-        ]
+        options:[]
     }
+
+    onChange = (data) => {
+        axios.get(`http://localhost:3004/posts`).then(
+            response => {
+                /*this.setState({options:response})*/
+                console.log(response)
+            },
+            error => {console.log("未找到")}
+        )
+    };
+
+    onSelect = (value) => {
+        console.log('onSelect', value);
+    };
+
     render() {
         const {current,options} = this.state
         return (
@@ -30,9 +42,11 @@ export default class Headbar extends Component {
                                 width: 200,
                             }}
                             options={options}
+                            onChange={this.onChange}
+                            onSelect={this.onSelect}
                             placeholder="请输入身份证号或姓名..."
                             filterOption={(inputValue, option) =>
-                                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                                option.value.indexOf(inputValue) !== -1
                             }
                         />
                         <Button type="primary">查询</Button>
