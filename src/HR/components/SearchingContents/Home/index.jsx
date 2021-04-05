@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Row, Col, Card, Divider} from 'antd';
 
-import p1 from './1.jpg'
-import p2 from './2.jpg'
-import p3 from './3.jpg'
+import p1 from './1.png'
+import p2 from './2.png'
+import p3 from './3.png'
 
 import './index.css'
 
@@ -22,9 +22,9 @@ class Home extends Component {
                             hoverable
                             style={{ width: 360 }}
                             cover={<img alt="example" src={p1} />}
-                            title="D公司"
+                            title="建筑公司"
                         >
-                            <Meta title="D公司介绍......x" description="www.baidu.com" />
+                            <Meta title="建筑公司介绍......" description="公司官网：www.xxx.com" />
                         </Card>
                     </Col>
                     <Col span={8}>
@@ -32,9 +32,9 @@ class Home extends Component {
                             hoverable
                             style={{ width: 360 }}
                             cover={<img alt="example" src={p3} />}
-                            title="C公司"
+                            title="电子企业"
                         >
-                            <Meta title="C公司介绍......x" description="www.bilibili.com" />
+                            <Meta title="电子企业介绍......" description="公司官网：www.xxx.com" />
                         </Card>
                     </Col>
                     <Col span={8}>
@@ -42,14 +42,14 @@ class Home extends Component {
                             hoverable
                             style={{ width: 360 }}
                             cover={<img alt="example" src={p2} />}
-                            title="B公司"
+                            title="能源企业"
                         >
-                            <Meta title="B公司介绍......x" description="www.douyu.tv" />
+                            <Meta title="能源企业介绍......" description="公司官网：www.xxx.com" />
                         </Card>
                     </Col>
                 </Row>
                 <Divider/>
-                <p className='home-detail'>本系统致力于帮助企业低成本便捷的进行背景调查，招到匹配的员工。企业hr在本系统中既是信息获取者，也是信息提供者。Hr可以为员工创建人才档案，人才档案会储存在系统数据库中。当员工求职时，hr可以在系统中调取出人才档案，了解员工此前工作情况。人才档案中包括：员工基本信息、员工绩效情况、员工考勤情况、员工培训情况、主观评价</p>
+                <p className='home-detail'>员工查人才内调平台是面向全国中小微企业HR的人才内调平台，为您提供实时准确的全国人才的工作信息，同时为HR提供人才信息备份服务。每天上万份的工作信息为HR提供参考。人才内调上员工查。</p>
             </div>
         );
     }

@@ -36,7 +36,7 @@ class SidebarAll extends Component {
                 <div className="logo" onClick={this.toHome}/>
                 <Menu
                     mode="inline"
-                    defaultSelectedKeys={['1']}
+                    defaultSelectedKeys={['search']}
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                     theme={'dark'}
