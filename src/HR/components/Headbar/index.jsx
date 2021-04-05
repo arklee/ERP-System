@@ -1,32 +1,29 @@
 import React, { Component } from 'react'
-import {Button, AutoComplete, Layout, Space, Row, Divider, Typography } from "antd";
+import {Layout, Space, Row, Divider, Typography, Input} from "antd";
 import axios from 'axios'
 
+import './index.css'
+
+const { Search } = Input;
 const { Text } = Typography;
 const {Header} = Layout
 
 export default class Headbar extends Component {
+
     state = {
-        current:{name:'李翔',id:'xxxx-0715'},
-        options:[]
+        current:{name:'未查询',id:'未查询'},
     }
 
-    onChange = () => {
-        axios.get(`http://localhost:3000/searchid`).then(
+    onSearch = value => {
+        axios.get(`http://localhost:3000/searchid?id=`+value).then(
             response => {
-                this.setState({options:response.data})
-                console.log(response)
-            },
-            error => {console.log("未找到")}
+                this.setState({current:response.data})
+            }
         )
-    };
-
-    onSelect = (value) => {
-        console.log('onSelect', value);
-    };
+    }
 
     render() {
-        const {current,options} = this.state
+        const {current} = this.state
         return (
             <Header style={{background: '#ffffff'}}>
                 <Row justify="end">
@@ -37,19 +34,14 @@ export default class Headbar extends Component {
                         <Divider type="vertical" />
                         <Text>身份证号：{current.id}</Text>
                         <Divider type="vertical" />
-                        <AutoComplete
-                            style={{
-                                width: 200,
-                            }}
-                            options={options}
-                            onChange={this.onChange}
-                            onSelect={this.onSelect}
-                            placeholder="请输入身份证号或姓名..."
-                            filterOption={(inputValue, option) =>
-                                option.value.indexOf(inputValue) !== -1
-                            }
+                        <Search
+                            className="search-bar"
+                            placeholder="输入身份证号以查询"
+                            allowClear
+                            enterButton="查询"
+                            size="large"
+                            onSearch={this.onSearch}
                         />
-                        <Button type="primary">查询</Button>
                     </Space>
                 </Row>
             </Header>

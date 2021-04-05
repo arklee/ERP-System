@@ -12,12 +12,13 @@ app.use((request,response,next)=>{
 app.use(bodyParser.json())
 
 app.get('/searchid',(request,response)=>{
-	const searchid = [
-		{value:'342401200001070815' ,text: '李翔 342401200001070815'},
-		{value:'342401200001070816',text: '李四 342401200001070816'},
-		{value:'342401200001070817',text: '张三 342401200001070817'},
+	searchid = [
+		{id:'342401200001070815',name: '李大向'},
+		{id:'342401200001070816',name: '李四'},
+		{id:'342401200001070817',name: '李方舟'},
 	]//查询员工（顶栏上的功能）
-	response.send(searchid)
+	response.send(searchid[0])
+	console.log(request.query.id)
 })
 
 app.get('/document',(request,response)=>{
