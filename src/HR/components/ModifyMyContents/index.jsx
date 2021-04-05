@@ -15,17 +15,19 @@ class ModifyMyContents extends Component {
         {title: '员工ID', dataIndex: 'stuff_id', key: 'stuff_id',},
         {title: '员工姓名', dataIndex: 'stuff_name', key: 'stuff_name',},
         {title: '评价id', dataIndex: 'judge_id', key: 'judge_id',},
-        {title: '反馈内容', dataIndex: 'content', key: 'content',},
-        {title: '详细信息', dataIndex: 'detail', key: 'detail', render: () => <Button type="primary" onClick={this.info}>查看详情</Button>}
+        {title: '反馈内容', dataIndex: 'feed', key: 'feed',render: () =><>......（点击详情查看）</>},
+        {title: '详细信息', dataIndex: 'detail', key: 'detail', render: (text,record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>}
     ];
 
-    info = () => {
+    info =(record) => () => {
         Modal.info({
-            title: 'This is a notification message',
+            title: '员工'+record.stuff_name+'的反馈内容',
             content: (
                 <div>
-                    <p>some messages...some messages...</p>
-                    <p>some messages...some messages...</p>
+                    <p>评价id: {record.judge_id}</p>
+                    <p>员工id: {record.stuff_id}</p>
+                    <p>员工姓名: {record.stuff_name}</p>
+                    <p>反馈内容: {record.content}</p>
                 </div>
             ),
             onOk() {},

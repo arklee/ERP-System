@@ -6,13 +6,15 @@ export default class Train extends Component {
 
     state = {dataSource: [], detail:false, id:0}
 
-    info = () => {
+    info = (record) => () => {
         Modal.info({
-            title: 'This is a notification message',
+            title: '培训id为'+record.id+'的详细信息',
             content: (
                 <div>
-                    <p>some messages...some messages...</p>
-                    <p>some messages...some messages...</p>
+                    <p>培训id: {record.id}</p>
+                    <p>时间: {record.from}-{record.to}</p>
+                    <p>考核结果: {record.result}</p>
+                    <p>考核内容: {record.detail}</p>
                 </div>
             ),
             onOk() {},
@@ -45,7 +47,8 @@ export default class Train extends Component {
         {
             title: '考核内容',
             dataIndex: 'content',
-            key: 'content'
+            key: 'content',
+            render: () => <>......（点击详情查看）</>
         },
         {
             title: '考核结果',
@@ -56,7 +59,7 @@ export default class Train extends Component {
             title: '详细信息',
             dataIndex: 'event',
             key: 'event',
-            render: () => <Button type="primary" onClick={this.info}>查看详情</Button>
+            render: (text, record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>
         }
     ];
 
