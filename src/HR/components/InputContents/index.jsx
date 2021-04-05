@@ -2,15 +2,32 @@ import React, {Component} from 'react';
 import {Breadcrumb, Divider, Layout, PageHeader }from "antd";
 import CollectionsPage from "./CollectionsPage";
 import SuccessCreate from "./SuccessCreate";
+import axios from 'axios'
 
 const { Content } = Layout;
 
 class InputContents extends Component {
 
-    state = {isSuccess:false,info:{name:'未知',id:'未知',sex:'未知',nationality:'未知',nation:'未知',degree:'未知',major:'未知',College:"未知",graduatedTime:"未知"}}
+    state = {
+        isSuccess:false,
+        info:{
+            name:'未知',
+            id:'未知',
+            sex:'未知',
+            nationality:'未知',
+            nation:'未知',
+            degree:'未知',
+            major:'未知',
+            College:"未知",
+            graduatedTime:"未知"
+        }
+    }
 
     success = (ok,inf) => {
-        this.setState({isSuccess:ok,info:inf})
+        axios.post(`http://localhost:3000/new`,inf).then(function (response) {
+            this.setState({isSuccess:ok,info:inf})
+            console.log(response);
+        })
     }
 
     render() {

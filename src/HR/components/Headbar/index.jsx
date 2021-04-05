@@ -11,10 +11,10 @@ export default class Headbar extends Component {
         options:[]
     }
 
-    onChange = (data) => {
-        axios.get(`http://localhost:3004/posts`).then(
+    onChange = () => {
+        axios.get(`http://localhost:3000/searchid`).then(
             response => {
-                /*this.setState({options:response})*/
+                this.setState({options:response.data})
                 console.log(response)
             },
             error => {console.log("未找到")}
