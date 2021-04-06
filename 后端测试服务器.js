@@ -11,6 +11,22 @@ app.use((request,response,next)=>{
 
 app.use(bodyParser.json())
 
+app.get('/login', (request,response)=>{
+	const data = {info:'failed'}
+	if (request.query.username === 'hr' && request.query.password === '332') {
+		data.info = 'hr'
+		console.log('success hr')
+	} else if (request.query.username === 'stuff' && request.query.password === '233') {
+		data.info = 'stuff'
+		console.log('success stuff')
+	}
+	response.send(data)
+})
+
+app.post('/register', (request,response)=> {
+
+})
+
 app.get('/searchid',(request,response)=>{
 	searchid = [
 		{id:'342401200001070815',name: '李大向'},
@@ -124,5 +140,5 @@ app.get('/judge',(request,response)=>{
 })
 
 app.listen(5000,(err)=>{
-	if(!err) console.log('服务器1启动成功了,请求学生信息地址为：http://localhost:5000');
+	if(!err) console.log('服务器1启动成功了,请求信息地址为：http://localhost:5000');
 })

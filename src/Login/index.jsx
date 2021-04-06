@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {Row, Form, Input, Button, Checkbox, Space} from 'antd';
+import {Row, Form, Input, Button, Checkbox, Space, message} from 'antd';
+import axios from 'axios'
 import today from './today.png'
+import Register from "./Register";
 
 const layout = {
     labelCol: {
@@ -19,21 +21,27 @@ const tailLayout = {
 
 class Login extends Component {
 
+    register = () => {
+
+    }
+
     onFinish = (values) => {
-        console.log('Success:', values);
+        axios.get(`http://localhost:3000/login?username=${values.username}&password=${values.password}`).then(
+            response => {
+                if (response.data.info === 'hr') {
+                    this.props.history.push(`/hr`)
+                } else if (response.data.info === 'stuff') {
+                    this.props.history.push(`/stuff`)
+                } else {
+                    message.warning('用户名或密码错误');
+                }
+            }
+        )
     };
 
     onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
-    loginHR = ()=>{
-        this.props.history.push(`/hr`)
-    }
-
-    loginStf = ()=>{
-        this.props.history.push(`/stuff`)
-    }
 
     render() {
         return (
@@ -86,18 +94,16 @@ class Login extends Component {
 
                     <Form.Item {...tailLayout}>
                         <Space size="large">
-                            <Button type="primary" htmlType="submit" block={true} onClick={this.loginHR}>
+                            <Button type="primary" htmlType="submit" block={true}>
                                 HR登录
                             </Button>
-                            <Button type="primary" htmlType="submit" block={true} onClick={this.loginStf}>
-                                员工登录
-                            </Button>
-                            <Button htmlType="submit" block={true}>
+                            <Button block={true} onclick={this.register}>
                                 注册
                             </Button>
                         </Space>
                     </Form.Item>
                 </Form>
+                <Register/>
             </Row>
         );
     }

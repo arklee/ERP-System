@@ -40,7 +40,7 @@ class SearchingContents extends Component {
                     <Breadcrumb.Item>{this.query[this.state.query]}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Layout style={{ padding: '24px 0', minHeight: '80vh', background: '#fff' }}>
-                    <SidebarQuery handleQuery={this.handleQuery}/>
+                    <SidebarQuery handleQuery={this.handleQuery} id={this.props.id}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
                             <Route path="/hr/search/home" component={Home}/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Layout, Menu} from "antd";
+import {message, Layout, Menu} from "antd";
 import {
     FileTextFilled,
     HourglassFilled,
@@ -19,8 +19,14 @@ class Sidebar extends Component {
     };
 
     handleClick = e => {
-        this.props.history.push('/hr/search/'+e.key)
-        this.props.handleQuery(e.key)
+        if (this.props.id===null) {
+            message.warning('请先进行查询');
+        }
+        else {
+            this.props.history.push('/hr/search/'+e.key)
+            this.props.handleQuery(e.key)
+        }
+
     };
 
     render() {

@@ -8,14 +8,21 @@ import InputContents from "./components/InputContents";
 import {Redirect, Route, Switch} from "react-router-dom";
 
 export default class Main extends Component {
+
+    state = {id:null}
+
+    isSearch = (id) => {
+        this.setState({id:id})
+    }
+
     render() {
         return (
             <Layout style={{ minHeight: '100vh' }}>
                 <SidebarAll/>
                 <Layout>
-                    <Headbar/>
+                    <Headbar isSearch={this.isSearch}/>
                     <Switch>
-                        <Route path="/hr/search" component={SearchingContents}/>
+                        <Route path="/hr/search" render={() => <SearchingContents id={this.state.id}/>}/>
                         <Route path="/hr/account" component={ModifyMyContents}/>
                         <Route path="/hr/input" component={InputContents}/>
                         <Redirect to="/hr/search"/>
