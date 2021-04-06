@@ -122,13 +122,30 @@ app.get('/exam',(request,response)=>{
 	response.send(dataSource)
 })
 
-app.get('/account',(request,response)=>{
+app.get('/feed',(request,response)=>{
 	const dataSource = {data:[
 		{stuff_name:"茗栋",stuff_id:"135",judge_id:"123",content:"我认为，该评价中xxxxxxxxxxx不符实际",},
 		{stuff_name:"翔",stuff_id:"425",judge_id:"125",content:"我认为，该评价中xxxasddasd不符实际",},
 		{stuff_name:"方舟",stuff_id:"235",judge_id:"433",content:"我认为，该评价中xxv32424xxx不符实际"}
 	],rate:0.025}//我的账户信息
 	response.send(dataSource)
+})
+
+app.get('/account',(request,response)=>{
+	const hrInfo = {
+		name: "李大翔",
+		sex: "男",
+		idCard: "342401200001070815",
+		company: "肯特牛",
+		number: "13966306031",
+		id: "12138",
+		email: "412344324@xx.com",
+		password: "1234567",
+		isVIP: true,
+		searchTimes: 20,
+		score: 64
+	}
+	response.send(hrInfo)
 })
 
 app.get('/judge',(request,response)=>{

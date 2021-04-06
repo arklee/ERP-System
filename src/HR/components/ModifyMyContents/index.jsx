@@ -35,7 +35,7 @@ class ModifyMyContents extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/account')
+        axios.get('http://localhost:3000/feed')
             .then(response => {
                 this.setState({dataSource:response.data.data, rate:response.data.rate})
             })

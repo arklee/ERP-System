@@ -3,23 +3,30 @@ import {PageHeader} from 'antd';
 import Content from "./Content";
 import Extra from "./Extra";
 import MyCollectionsPage from "./MyCollectionsPage";
+import axios from 'axios'
 
 
 class InfoHeader extends Component {
-    state = {
-        hrInfo: {
-            name: "李大翔",
-            sex: "男",
-            idCard: "342401200001070815",
-            company: "肯特牛",
-            number: "13966306031",
-            id: "12138",
-            email: "412344324@xx.com",
-            password: "1234567",
-            isVIP: true,
-            searchTimes: 20,
-            score: 64
-        }
+    state = {hrInfo:{
+            name: "请求错误",
+            sex: "请求错误",
+            idCard: "请求错误",
+            company: "请求错误",
+            number: "请求错误",
+            id: "请求错误",
+            email: "请求错误",
+            password: "请求错误",
+            isVIP: false,
+            searchTimes: 0,
+            score: 0
+        }}
+
+    componentDidMount() {
+        axios.get(`http://localhost:3000/account`).then(
+            response=>{
+                this.setState({hrInfo:response.data})
+            }
+        )
     }
 
     render() {
