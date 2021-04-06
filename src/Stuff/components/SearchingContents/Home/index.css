@@ -1,0 +1,15 @@
+.home-title {
+    font-size: 36px
+}
+.home-subtitle {
+    color: darkgray;
+}
+.site-card-wrapper {
+    text-align: center;
+}
+.home-detail {
+    color: #636363;
+    font-size: 16px;
+    padding-left: 100px;
+    padding-right: 100px;
+}

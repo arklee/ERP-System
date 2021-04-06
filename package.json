@@ -41,5 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://106.13.81.108:5000"
+  "proxy": "http://localhost:5000"
 }

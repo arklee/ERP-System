@@ -4,7 +4,7 @@ import Headbar from "./components/Headbar";
 import SidebarAll from "./components/SidebarAll";
 import ModifyMyContents from "./components/ModifyMyContents";
 import {Redirect, Route, Switch} from "react-router-dom";
-import StuffHome from './components/StuffHome'
+import SearchingContents from "./components/SearchingContents";
 
 class Stuff extends Component {
     render() {
@@ -15,7 +15,7 @@ class Stuff extends Component {
                     <Headbar/>
                     <Switch>
                         <Route path="/stuff/account" component={ModifyMyContents}/>
-                        <Route path="/stuff/home" component={StuffHome}/>
+                        <Route path="/stuff/search" component={SearchingContents}/>
                         <Redirect to="/stuff/account"/>
                     </Switch>
                 </Layout>

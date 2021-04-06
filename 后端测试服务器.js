@@ -157,6 +157,12 @@ app.get('/judge',(request,response)=>{
 	response.send(judge)
 })
 
+app.get('/stuff/searchid',(request,response)=>{
+	const searchid = {id:'342401200001070816',name: '李四'} //查询员工（顶栏上的功能）
+	response.send(searchid)
+	console.log(request.query.id)
+})
+
 app.listen(5000,(err)=>{
 	if(!err) console.log('服务器1启动成功了,请求信息地址为：http://localhost:5000');
 })

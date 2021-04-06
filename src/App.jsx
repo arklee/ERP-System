@@ -4,7 +4,7 @@ import HR from "./HR";
 import Login from "./Login";
 import './App.css';
 import Stuff from "./Stuff";
-
+import Company from "./Company"
 
 export default class App extends Component {
     render() {
@@ -13,6 +13,7 @@ export default class App extends Component {
                 <Route path="/hr" component={HR}/>
                 <Route path="/stuff" component={Stuff}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/company" component={Company}/>
                 <Redirect to="/login"/>
             </Switch>
         )
