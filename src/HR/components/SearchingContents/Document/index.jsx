@@ -13,7 +13,7 @@ class Document extends Component {
             response => {
                 this.setState({info:response.data})
             },
-            error => {
+            () => {
                 this.setState({info:{
                         name:'请求失败',
                         id:'请求失败',

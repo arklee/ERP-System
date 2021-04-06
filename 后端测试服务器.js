@@ -24,11 +24,12 @@ app.get('/login', (request,response)=>{
 })
 
 app.post('/register', (request,response)=> {
-
+	console.log(request.body)
+	response.send(true)
 })
 
 app.get('/searchid',(request,response)=>{
-	searchid = [
+	const searchid = [
 		{id:'342401200001070815',name: '李大向'},
 		{id:'342401200001070816',name: '李四'},
 		{id:'342401200001070817',name: '李方舟'},
@@ -67,7 +68,7 @@ app.post('/new',(request,response)=>{
 })//录入
 
 app.get('/train',(request,response)=>{
-	dataSource= [
+	const dataSource= [
 		{
 			id: '#21332',
 			from: '2020-01-07',
@@ -94,7 +95,7 @@ app.get('/train',(request,response)=>{
 })
 
 app.get('/attending',(request,response)=>{
-	dataSource= [
+	const dataSource= [
 		{id: '#21333', company: '钓鱼公司', employTime: '2019-01', lack: 8, late: 25, days: 360},
 		{id: '#21334', company: '李翔企业', employTime: '2019-02', lack: 6, late: 10, days: 72},
 		{id: '#21335', company: '阿里巴巴', employTime: '2019-03', lack: 4, late: 12, days: 228},
@@ -103,7 +104,7 @@ app.get('/attending',(request,response)=>{
 })
 
 app.get('/exam',(request,response)=>{
-	dataSource = [
+	const dataSource = [
 		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01', result: 'A'},
 		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02', result: 'A'},
 		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03', result: 'B'},
@@ -122,7 +123,7 @@ app.get('/exam',(request,response)=>{
 })
 
 app.get('/account',(request,response)=>{
-	dataSource = {data:[
+	const dataSource = {data:[
 		{stuff_name:"茗栋",stuff_id:"135",judge_id:"123",content:"我认为，该评价中xxxxxxxxxxx不符实际",},
 		{stuff_name:"翔",stuff_id:"425",judge_id:"125",content:"我认为，该评价中xxxasddasd不符实际",},
 		{stuff_name:"方舟",stuff_id:"235",judge_id:"433",content:"我认为，该评价中xxv32424xxx不符实际"}
@@ -131,7 +132,7 @@ app.get('/account',(request,response)=>{
 })
 
 app.get('/judge',(request,response)=>{
-	judge = [
+	const judge = [
 		{id:"#1231",company:'钓鱼公司', hrName:'李大象', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 		{id:"#1234",company:'王老吉', hrName:'吴雪药', hrID:"#3326",statement:"良好的个⼈形象和素养，专业技能或业务⽔平优秀，为公司业务创造更多机会和效益，受公司客户及合作企业好评，为公司创造出较好的企业效益或社会效益;⼯作认真负责，⽤⼼主动，服从整体安排，爱岗敬业，乐于助⼈，与同事相处融洽，业务知识扎实，业务⽔平优秀，能带动东区的给为同事⽤⼼⼯作，胜任东区⼤区经理⼯作;⼯作出⾊，业务熟悉，为我们成⽴起榜样。"},
 		{id:"#1237",company:'万达集团', hrName:'王思聪', hrID:"#1234",statement:"该同事⼯作上勤勤恳恳，任劳任怨，认真负责，业务⽔平也在学习中不断提⾼，关⼼同事，⼗分值得⼤家学习，新晋社会如此努⼒难能可贵，今年完成了公司制定的任务，态度端正，办事⽅法有改善，⼯作有进步，该员⼯做事情踏踏实实做⼈本分，能够虚⼼理解市场招商经理的推荐，努⼒学习不⾜之处;⼤⼒开发所负责区域的空⽩品种，并⽤⼼和经理进⾏各种环节的沟通;在_年x⽉份进步异常迅速;对待⼯作兢兢业业，处处为公司思考，不记个⼈得失"}

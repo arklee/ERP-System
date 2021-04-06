@@ -7,7 +7,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
     return (
         <Modal
             visible={visible}
-            title="录入新员工"
+            title="修改个人信息"
             okText="录入"
             cancelText="取消"
             onCancel={onCancel}

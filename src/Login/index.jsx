@@ -21,10 +21,6 @@ const tailLayout = {
 
 class Login extends Component {
 
-    register = () => {
-
-    }
-
     onFinish = (values) => {
         axios.get(`http://localhost:3000/login?username=${values.username}&password=${values.password}`).then(
             response => {
@@ -95,15 +91,12 @@ class Login extends Component {
                     <Form.Item {...tailLayout}>
                         <Space size="large">
                             <Button type="primary" htmlType="submit" block={true}>
-                                HR登录
+                                登录
                             </Button>
-                            <Button block={true} onclick={this.register}>
-                                注册
-                            </Button>
+                            <Register/>
                         </Space>
                     </Form.Item>
                 </Form>
-                <Register/>
             </Row>
         );
     }
