@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import {Table, Divider, PageHeader, Button, Modal} from 'antd';
+import {Row, Col, Table, Divider, PageHeader, Button, Modal, message} from 'antd';
+import AddTrain from "./AddTrain";
 import axios from 'axios'
+import EditTrain from "./EditTrain";
 
 export default class Train extends Component {
 
@@ -24,6 +26,30 @@ export default class Train extends Component {
     componentDidMount() {
         axios.get('http://localhost:3000/train')
             .then(response => {
+                this.setState({dataSource:response.data})
+            })
+    }
+
+    delete = (record) => () => {
+        axios.post('http://localhost:3000/train/delete', record)
+            .then(response => {
+                message.warning('删除成功')
+                this.setState({dataSource:response.data})
+            })
+    }
+
+    add = (record) => {
+        axios.post('http://localhost:3000/train/add', record)
+            .then(response => {
+                message.success('添加成功')
+                this.setState({dataSource:response.data})
+            })
+    }
+
+    edit = (record) => {
+        axios.post('http://localhost:3000/train/edit', record)
+            .then(response => {
+                message.success('修改成功')
                 this.setState({dataSource:response.data})
             })
     }
@@ -60,6 +86,19 @@ export default class Train extends Component {
             dataIndex: 'event',
             key: 'event',
             render: (text, record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>
+        },
+        {
+            title: '',
+            dataIndex: 'delete',
+            key: 'delete',
+            render: (text, record) =>(
+                <Button onClick={this.delete(record)} type="dashed" danger>删除</Button>)
+        },
+        {
+            title: '',
+            dataIndex: 'edit',
+            key: 'edit',
+            render: (text, record) => <EditTrain edit={this.edit} record={record}/>
         }
     ];
 
@@ -67,12 +106,19 @@ export default class Train extends Component {
         const {dataSource} = this.state
         return(
             <>
-                <PageHeader
-                    className="site-page-header"
-                    onBack={()=>this.props.history.goBack()}
-                    title="人才培训管理"
-                    subTitle="记录员工所接受的所有培训内容"
-                />
+                <Row>
+                    <Col span={21}>
+                        <PageHeader
+                            className="site-page-header"
+                            onBack={()=>this.props.history.goBack()}
+                            title="人才培训管理"
+                            subTitle="记录员工所接受的所有培训内容"
+                        />
+                    </Col>
+                    <Col>
+                        <AddTrain add={this.add}/>
+                    </Col>
+                </Row>
                 <Divider />
                 <Table dataSource={dataSource} columns={this.columns}/>
             </>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Descriptions, Divider, PageHeader} from "antd";
+import {Button, Descriptions, Divider, PageHeader} from "antd";
 import axios from "axios";
 
 class Judge extends Component {
@@ -18,7 +18,7 @@ class Judge extends Component {
         return (
             <div>
                 <PageHeader
-                    className="site-page-header"
+                    className="sit  e-page-header"
                     onBack={()=>this.props.history.goBack()}
                     title="评价管理"
                     subTitle="记录员工的历任HR对其评价"

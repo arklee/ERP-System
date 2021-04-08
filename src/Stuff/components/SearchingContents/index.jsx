@@ -43,14 +43,14 @@ class SearchingContents extends Component {
                     <SidebarQuery handleQuery={this.handleQuery} id={this.props.id}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
-                            <Route path="/hr/search/home" component={Home}/>
-                            <Route path="/hr/search/train" component={Train}/>
-                            <Route path="/hr/search/document" component={Document}/>
-                            <Route path="/hr/search/attending" component={Attending}/>
-                            <Route path="/hr/search/exam" component={Exam}/>
-                            <Route path="/hr/search/overall" component={Overall}/>
-                            <Route path="/hr/search/judge" component={Judge}/>
-                            <Redirect to="/hr/search/home"/>
+                            <Route path="/stuff/search/home" component={Home}/>
+                            <Route path="/stuff/search/train" component={Train}/>
+                            <Route path="/stuff/search/document" component={Document}/>
+                            <Route path="/stuff/search/attending" component={Attending}/>
+                            <Route path="/stuff/search/exam" component={Exam}/>
+                            <Route path="/stuff/search/overall" component={Overall}/>
+                            <Route path="/stuff/search/judge" component={Judge}/>
+                            <Redirect to="/stuff/search/home"/>
                         </Switch>
                     </Content>
                 </Layout>

@@ -94,31 +94,185 @@ app.get('/train',(request,response)=>{
 	response.send(dataSource)
 })
 
+app.post('/train/delete',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21333',
+			from: '2020-03-07',
+			to: '2020-04-07',
+			result: 'B',
+			detail: '该员工xxxxxxx'
+		},
+		{
+			id: '#21334',
+			from: '2020-08-07',
+			to: '2020-09-07',
+			result: 'C',
+			detail: '该员工xxxxxxx'
+		}
+	]
+	console.log("成功删除id为"+request.body.id+"的培训记录")
+	response.send(dataSource)
+})
+
+app.post('/train/add',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21332',
+			from: '2020-01-07',
+			to: '2020-02-07',
+			result: 'A',
+			detail: '该员工xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+		},
+		{
+			id: '#21333',
+			from: '2020-03-07',
+			to: '2020-04-07',
+			result: 'B',
+			detail: '该员工xxxxxxx'
+		},
+		{
+			id: '#21334',
+			from: '2020-08-07',
+			to: '2020-09-07',
+			result: 'C',
+			detail: '该员工xxxxxxx'
+		},
+		{
+			id: '#21337',
+			from: '2015-02-23',
+			to: '2025-03-24',
+			result: 'B',
+			detail: '该员工xxxxxxxsssssasdasdasdasd'
+		}
+	]//培训
+	console.log("成功添加培训记录"+JSON.stringify(request.body))
+	response.send(dataSource)
+})
+
+app.post('/train/edit',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21332',
+			from: '2020-01-07',
+			to: '2020-02-07',
+			result: 'B',
+			detail: '该员工xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+		},
+		{
+			id: '#21333',
+			from: '2020-03-07',
+			to: '2020-04-07',
+			result: 'B',
+			detail: '该员工xxxxxxx'
+		},
+		{
+			id: '#21334',
+			from: '2020-08-07',
+			to: '2020-09-07',
+			result: 'C',
+			detail: '该员工xxxxxxx'
+		}
+	]//培训
+	console.log("成功修改培训记录"+JSON.stringify(request.body))
+	response.send(dataSource)
+})
+
 app.get('/attending',(request,response)=>{
 	const dataSource= [
-		{id: '#21333', company: '钓鱼公司', employTime: '2019-01', lack: 8, late: 25, days: 360},
-		{id: '#21334', company: '李翔企业', employTime: '2019-02', lack: 6, late: 10, days: 72},
-		{id: '#21335', company: '阿里巴巴', employTime: '2019-03', lack: 4, late: 12, days: 228},
+		{id: '#21333', company: '钓鱼公司', employTime: '2019-01-06', lack: 8, late: 25, days: 360},
+		{id: '#21334', company: '李翔企业', employTime: '2019-02-03', lack: 6, late: 10, days: 72},
+		{id: '#21335', company: '阿里巴巴', employTime: '2019-03-23', lack: 4, late: 12, days: 228},
 	]//考勤
+	response.send(dataSource)
+})
+
+app.post('/attending/edit',(request,response)=>{
+	const dataSource= [
+		{id: '#21333', company: '钓鱼公司', employTime: '2019-01-06', lack: 9, late: 25, days: 360},
+		{id: '#21334', company: '李翔企业', employTime: '2019-02-03', lack: 6, late: 10, days: 72},
+		{id: '#21335', company: '阿里巴巴', employTime: '2019-03-23', lack: 4, late: 12, days: 228},
+	]//考勤
+	console.log("成功修改考勤记录"+JSON.stringify(request.body))
 	response.send(dataSource)
 })
 
 app.get('/exam',(request,response)=>{
 	const dataSource = [
-		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01', result: 'A'},
-		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02', result: 'A'},
-		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03', result: 'B'},
-		{id: '#21336', hr: '吴雪药', company: '钓鱼公司', season: '2019-04', result: 'B'},
-		{id: '#21337', hr: '吴雪药', company: '钓鱼公司', season: '2019-05', result: 'B'},
-		{id: '#21338', hr: '网大为', company: '钓鱼公司', season: '2019-06', result: 'C'},
-		{id: '#21339', hr: '李大象', company: '钓鱼公司', season: '2019-07', result: 'C'},
-		{id: '#21330', hr: '养志', company: '钓鱼公司', season: '2019-08', result: 'E'},
-		{id: '#21321', hr: '吴雪药', company: '钓鱼公司', season: '2019-09', result: 'E'},
-		{id: '#21323', hr: '吴雪药', company: '钓鱼公司', season: '2019-010', result: 'E'},
-		{id: '#21362', hr: '网大为', company: '钓鱼公司', season: '2019-11', result: 'F'},
-		{id: '#21342', hr: '李大象', company: '钓鱼公司', season: '2019-12', result: 'D'},
-		{id: '#21332', hr: '吴雪药', company: '钓鱼公司', season: '2020-01', result: 'A'},
+		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01-25', result: 'A'},
+		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02-25', result: 'A'},
+		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03-25', result: 'B'},
+		{id: '#21336', hr: '吴雪药', company: '钓鱼公司', season: '2019-04-25', result: 'B'},
+		{id: '#21337', hr: '吴雪药', company: '钓鱼公司', season: '2019-05-25', result: 'B'},
+		{id: '#21338', hr: '网大为', company: '钓鱼公司', season: '2019-06-25', result: 'C'},
+		{id: '#21339', hr: '李大象', company: '钓鱼公司', season: '2019-07-25', result: 'C'},
+		{id: '#21330', hr: '养志', company: '钓鱼公司', season: '2019-08-25', result: 'E'},
+		{id: '#21321', hr: '吴雪药', company: '钓鱼公司', season: '2019-09-25', result: 'E'},
+		{id: '#21323', hr: '吴雪药', company: '钓鱼公司', season: '2019-010-25', result: 'E'},
+		{id: '#21362', hr: '网大为', company: '钓鱼公司', season: '2019-11-25', result: 'F'},
+		{id: '#21342', hr: '李大象', company: '钓鱼公司', season: '2019-12-25', result: 'D'},
+		{id: '#21332', hr: '吴雪药', company: '钓鱼公司', season: '2020-01-25', result: 'A'},
 	]//绩效
+	response.send(dataSource)
+})
+
+app.post('/exam/add',(request,response)=>{
+	const dataSource = [
+		{id: '#21324', hr: '网大为', company: '钓鱼公司', season: '2019-07-25', result: 'A'},
+		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01-25', result: 'A'},
+		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02-25', result: 'A'},
+		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03-25', result: 'B'},
+		{id: '#21336', hr: '吴雪药', company: '钓鱼公司', season: '2019-04-25', result: 'B'},
+		{id: '#21337', hr: '吴雪药', company: '钓鱼公司', season: '2019-05-25', result: 'B'},
+		{id: '#21338', hr: '网大为', company: '钓鱼公司', season: '2019-06-25', result: 'C'},
+		{id: '#21339', hr: '李大象', company: '钓鱼公司', season: '2019-07-25', result: 'C'},
+		{id: '#21330', hr: '养志', company: '钓鱼公司', season: '2019-08-25', result: 'E'},
+		{id: '#21321', hr: '吴雪药', company: '钓鱼公司', season: '2019-09-25', result: 'E'},
+		{id: '#21323', hr: '吴雪药', company: '钓鱼公司', season: '2019-010-25', result: 'E'},
+		{id: '#21362', hr: '网大为', company: '钓鱼公司', season: '2019-11-25', result: 'F'},
+		{id: '#21342', hr: '李大象', company: '钓鱼公司', season: '2019-12-25', result: 'D'},
+		{id: '#21332', hr: '吴雪药', company: '钓鱼公司', season: '2020-01-25', result: 'A'},
+	]//绩效
+	console.log("成功添加绩效记录"+JSON.stringify(request.body))
+	response.send(dataSource)
+})
+
+app.post('/exam/delete',(request,response)=>{
+	const dataSource = [
+		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02-25', result: 'A'},
+		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03-25', result: 'B'},
+		{id: '#21336', hr: '吴雪药', company: '钓鱼公司', season: '2019-04-25', result: 'B'},
+		{id: '#21337', hr: '吴雪药', company: '钓鱼公司', season: '2019-05-25', result: 'B'},
+		{id: '#21338', hr: '网大为', company: '钓鱼公司', season: '2019-06-25', result: 'C'},
+		{id: '#21339', hr: '李大象', company: '钓鱼公司', season: '2019-07-25', result: 'C'},
+		{id: '#21330', hr: '养志', company: '钓鱼公司', season: '2019-08-25', result: 'E'},
+		{id: '#21321', hr: '吴雪药', company: '钓鱼公司', season: '2019-09-25', result: 'E'},
+		{id: '#21323', hr: '吴雪药', company: '钓鱼公司', season: '2019-010-25', result: 'E'},
+		{id: '#21362', hr: '网大为', company: '钓鱼公司', season: '2019-11-25', result: 'F'},
+		{id: '#21342', hr: '李大象', company: '钓鱼公司', season: '2019-12-25', result: 'D'},
+		{id: '#21332', hr: '吴雪药', company: '钓鱼公司', season: '2020-01-25', result: 'A'},
+	]//绩效
+	response.send(dataSource)
+	console.log("成功删除id为"+request.body.id+"的培训记录")
+})
+
+app.post('/exam/edit',(request,response)=>{
+	const dataSource = [
+		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01-25', result: 'B'},
+		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02-25', result: 'A'},
+		{id: '#21335', hr: '养志', company: '钓鱼公司', season: '2019-03-25', result: 'B'},
+		{id: '#21336', hr: '吴雪药', company: '钓鱼公司', season: '2019-04-25', result: 'B'},
+		{id: '#21337', hr: '吴雪药', company: '钓鱼公司', season: '2019-05-25', result: 'B'},
+		{id: '#21338', hr: '网大为', company: '钓鱼公司', season: '2019-06-25', result: 'C'},
+		{id: '#21339', hr: '李大象', company: '钓鱼公司', season: '2019-07-25', result: 'C'},
+		{id: '#21330', hr: '养志', company: '钓鱼公司', season: '2019-08-25', result: 'E'},
+		{id: '#21321', hr: '吴雪药', company: '钓鱼公司', season: '2019-09-25', result: 'E'},
+		{id: '#21323', hr: '吴雪药', company: '钓鱼公司', season: '2019-010-25', result: 'E'},
+		{id: '#21362', hr: '网大为', company: '钓鱼公司', season: '2019-11-25', result: 'F'},
+		{id: '#21342', hr: '李大象', company: '钓鱼公司', season: '2019-12-25', result: 'D'},
+		{id: '#21332', hr: '吴雪药', company: '钓鱼公司', season: '2020-01-25', result: 'A'},
+	]//绩效
+	console.log("成功修改绩效记录"+JSON.stringify(request.body))
 	response.send(dataSource)
 })
 

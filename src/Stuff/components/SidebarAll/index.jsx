@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Layout, Menu} from "antd";
-import {SnippetsOutlined, UserOutlined} from '@ant-design/icons';
+import {SnippetsOutlined, UserOutlined } from '@ant-design/icons';
 import './index.css'
 import { withRouter } from "react-router-dom";
 
@@ -32,8 +32,6 @@ class SidebarAll extends Component {
                 <div className="logo" onClick={this.toHome}/>
                 <Menu
                     mode="inline"
-                    defaultSelectedKeys={['search']}
-                    defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                     theme={'dark'}
                     onClick={this.handleClick}

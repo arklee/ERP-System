@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { Liquid } from '@ant-design/charts';
 
-
-
 class LiquidP extends Component {
 
     percent=()=>{

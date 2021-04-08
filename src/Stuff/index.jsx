@@ -16,7 +16,7 @@ class Stuff extends Component {
                     <Switch>
                         <Route path="/stuff/account" component={ModifyMyContents}/>
                         <Route path="/stuff/search" component={SearchingContents}/>
-                        <Redirect to="/stuff/account"/>
+                        <Redirect to="/stuff/search"/>
                     </Switch>
                 </Layout>
             </Layout>

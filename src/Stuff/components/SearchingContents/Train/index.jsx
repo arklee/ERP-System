@@ -59,7 +59,7 @@ export default class Train extends Component {
             title: '详细信息',
             dataIndex: 'event',
             key: 'event',
-            render: (text, record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>
+            render: (text, record) => <Button type="primary" onClick={this.info(record)}>详细信息</Button>
         }
     ];
 
