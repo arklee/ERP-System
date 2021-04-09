@@ -28,6 +28,8 @@ class Login extends Component {
                     this.props.history.push(`/hr`)
                 } else if (response.data.info === 'stuff') {
                     this.props.history.push(`/stuff`)
+                } else if (response.data.info === 'company') {
+                    this.props.history.push(`/company`)
                 } else {
                     message.warning('用户名或密码错误');
                 }

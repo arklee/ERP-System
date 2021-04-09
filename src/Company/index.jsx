@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
+import Score from './Score'
 
-class Index extends Component {
+class Company extends Component {
     render() {
         return (
             <div>
-
+                <Score/>
             </div>
         );
     }
 }
 
-export default Index;
+export default Company;
