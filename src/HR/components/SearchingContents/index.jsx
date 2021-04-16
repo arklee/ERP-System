@@ -11,6 +11,7 @@ import Overall from "./Overall";
 import Judge from "./Judge";
 import Home from "./Home";
 
+export const {Provider,Consumer} = React.createContext("默认名称");
 
 const { Content } = Layout;
 
@@ -33,6 +34,7 @@ class SearchingContents extends Component {
     }
 
     render() {
+        let id = this.props.id
         return (
             <Content style={{ padding: '0 50px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
@@ -40,7 +42,8 @@ class SearchingContents extends Component {
                     <Breadcrumb.Item>{this.query[this.state.query]}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Layout style={{ padding: '24px 0', minHeight: '80vh', background: '#fff' }}>
-                    <SidebarQuery handleQuery={this.handleQuery} id={this.props.id}/>
+                    <Provider value={id}>
+                    <SidebarQuery handleQuery={this.handleQuery}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
                             <Route path="/hr/search/home" component={Home}/>
@@ -53,6 +56,7 @@ class SearchingContents extends Component {
                             <Redirect to="/hr/search/home"/>
                         </Switch>
                     </Content>
+                    </Provider>
                 </Layout>
             </Content>
         );
