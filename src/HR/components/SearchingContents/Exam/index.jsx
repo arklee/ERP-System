@@ -19,7 +19,7 @@ class Exam extends Component {
     }
 
     delete = (record) => () => {
-        axios.post('http://localhost:3000/exam/delete', record)
+        axios.post(`http://localhost:3000/exam/delete?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -27,7 +27,7 @@ class Exam extends Component {
     }
 
     add = (record) => {
-        axios.post('http://localhost:3000/exam/add', record)
+        axios.post(`http://localhost:3000/exam/add?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -35,7 +35,7 @@ class Exam extends Component {
     }
 
     edit = (record) => {
-        axios.post('http://localhost:3000/exam/edit', record)
+        axios.post(`http://localhost:3000/exam/edit?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

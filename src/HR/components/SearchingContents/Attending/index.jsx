@@ -23,24 +23,8 @@ class Attending extends Component {
         }
     ];
 
-    delete = (record) => () => {
-        axios.post(`http://localhost:3000/attending/delete`, record)
-            .then(response => {
-                message.warning('删除成功')
-                this.setState({dataSource:response.data})
-            })
-    }
-
-    add = (record) => {
-        axios.post('http://localhost:3000/attending/add', record)
-            .then(response => {
-                message.success('添加成功')
-                this.setState({dataSource:response.data})
-            })
-    }
-
     edit = (record) => {
-        axios.post('http://localhost:3000/attending/edit', record)
+        axios.post(`http://localhost:3000/attending/edit?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

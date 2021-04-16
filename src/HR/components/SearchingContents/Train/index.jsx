@@ -31,7 +31,7 @@ export default class Train extends Component {
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/train/delete`, record)
+        axios.post(`http://localhost:3000/train/delete?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -39,7 +39,7 @@ export default class Train extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/train/add`, record)
+        axios.post(`http://localhost:3000/train/add?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -47,7 +47,7 @@ export default class Train extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/train/edit`, record)
+        axios.post(`http://localhost:3000/train/edit?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

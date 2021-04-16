@@ -16,7 +16,7 @@ class Judge extends Component {
     }
 
     delete = (record) => () => {
-        axios.post('http://localhost:3000/judge/delete', record)
+        axios.post(`http://localhost:3000/judge/delete?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({judge:response.data})
@@ -24,7 +24,7 @@ class Judge extends Component {
     }
 
     add = (record) => {
-        axios.post('http://localhost:3000/judge/add', record)
+        axios.post(`http://localhost:3000/judge/add?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({judge:response.data})
@@ -32,7 +32,7 @@ class Judge extends Component {
     }
 
     edit = (record) => {
-        axios.post('http://localhost:3000/judge/edit', record)
+        axios.post(`http://localhost:3000/judge/edit?user=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({judge:response.data})
