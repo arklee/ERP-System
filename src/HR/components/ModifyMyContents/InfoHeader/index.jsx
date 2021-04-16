@@ -22,7 +22,7 @@ class InfoHeader extends Component {
         }}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/account`).then(
+        axios.get(`http://localhost:3000/account?user=${this.props.user}`).then(
             response=>{
                 this.setState({hrInfo:response.data})
             }

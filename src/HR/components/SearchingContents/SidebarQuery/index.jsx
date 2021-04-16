@@ -37,11 +37,11 @@ class Sidebar extends Component {
                     style={{ height: '100%' }}
                     onClick={this.handleClick}
                 >
-                    <Menu.Item key="document" icon={<FileTextFilled />}>人才档案查询</Menu.Item>
-                    <Menu.Item key="train" icon={<HourglassFilled />}>人才培训查询</Menu.Item>
-                    <Menu.Item key="exam" icon={<IdcardFilled />}>绩效信息查询</Menu.Item>
-                    <Menu.Item key="attending" icon={<ScheduleFilled />}>考勤信息查询</Menu.Item>
-                    <Menu.Item key="judge" icon={<StarFilled />}>评价查询</Menu.Item>
+                    <Menu.Item key="document" icon={<FileTextFilled />}>人才档案管理</Menu.Item>
+                    <Menu.Item key="train" icon={<HourglassFilled />}>人才培训管理</Menu.Item>
+                    <Menu.Item key="exam" icon={<IdcardFilled />}>绩效信息管理</Menu.Item>
+                    <Menu.Item key="attending" icon={<ScheduleFilled />}>考勤信息管理</Menu.Item>
+                    <Menu.Item key="judge" icon={<StarFilled />}>评价管理</Menu.Item>
                     <Menu.Item key="overall" icon={<LockFilled />}>总览</Menu.Item>
                 </Menu>
             </Sider>

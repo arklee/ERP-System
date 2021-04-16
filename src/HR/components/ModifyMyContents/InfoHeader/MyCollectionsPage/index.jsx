@@ -34,11 +34,11 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
                     password: hrInfo.password,
                 }}
             >
+                <Form.Item name="idCard" label="身份证号">
+                    <Input disabled/>
+                </Form.Item>
                 <Form.Item name="name" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                     <Input/>
-                </Form.Item>
-                <Form.Item name="idCard" label="身份证号">
-                    <Input type="textarea" />
                 </Form.Item>
                 <Form.Item name="sex" label="性别">
                     <Radio.Group>

@@ -35,7 +35,7 @@ class ModifyMyContents extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/feed')
+        axios.get(`http://localhost:3000/feed?user=${this.props.user}`)
             .then(response => {
                 this.setState({dataSource:response.data.data, rate:response.data.rate})
             })
@@ -50,7 +50,7 @@ class ModifyMyContents extends Component {
                     <Breadcrumb.Item>修改个人信息</Breadcrumb.Item>
                 </Breadcrumb>
                 <Layout style={{ padding: '24px 0', minHeight: '80vh', background: '#fff' }}>
-                    <InfoHeader/>
+                    <InfoHeader user={this.props.user}/>
                     <Divider/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <div className="feed-title">我收到的员工反馈/投诉率</div>

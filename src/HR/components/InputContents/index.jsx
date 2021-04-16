@@ -24,7 +24,7 @@ class InputContents extends Component {
     }
 
     success = (ok,inf) => {
-        axios.post(`http://localhost:3000/new`,inf).then((response) => {
+        axios.post(`http://localhost:3000/new?user=${this.props.user}`,inf).then((response) => {
             this.setState({isSuccess:ok,info:inf})
         })
     }

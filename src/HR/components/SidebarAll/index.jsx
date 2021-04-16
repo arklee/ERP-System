@@ -42,7 +42,7 @@ class SidebarAll extends Component {
                     theme={'dark'}
                     onClick={this.handleClick}
                 >
-                    <Menu.Item key="search" icon={<SnippetsOutlined />}>查看员工信息</Menu.Item>
+                    <Menu.Item key="search" icon={<SnippetsOutlined />}>员工信息查询</Menu.Item>
                     <Menu.Item key="account" icon={<UserOutlined />}>我的账户信息</Menu.Item>
                     <Menu.Item key="input" icon={<PlusCircleOutlined />}>录入员工信息</Menu.Item>
                 </Menu>
