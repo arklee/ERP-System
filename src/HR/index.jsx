@@ -22,9 +22,9 @@ export default class Main extends Component {
                 <Layout>
                     <Headbar isSearch={this.isSearch}/>
                     <Switch>
-                        <Route path="/hr/search" render={() => <SearchingContents id={this.state.id}/>}/>
-                        <Route path="/hr/account" component={ModifyMyContents}/>
-                        <Route path="/hr/input" component={InputContents}/>
+                        <Route path="/hr/search" render={() => <SearchingContents user={this.props.id} id={this.state.id}/>}/>
+                        <Route path="/hr/account" render={() => <ModifyMyContents user={this.props.id}/>}/>
+                        <Route path="/hr/input" render={() => <InputContents user={this.props.id}/>}/>
                         <Redirect to="/hr/search"/>
                     </Switch>
                 </Layout>

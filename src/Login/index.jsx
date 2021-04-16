@@ -26,6 +26,7 @@ class Login extends Component {
             response => {
                 if (response.data.info === 'hr') {
                     this.props.history.push(`/hr`)
+                    this.props.getID(values.username)
                 } else if (response.data.info === 'stuff') {
                     this.props.history.push(`/stuff`)
                 } else if (response.data.info === 'company') {

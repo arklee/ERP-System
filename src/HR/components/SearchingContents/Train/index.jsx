@@ -24,14 +24,14 @@ export default class Train extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/train')
+        axios.get(`http://localhost:3000/train?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
     }
 
     delete = (record) => () => {
-        axios.post('http://localhost:3000/train/delete', record)
+        axios.post(`http://localhost:3000/train/delete`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -39,7 +39,7 @@ export default class Train extends Component {
     }
 
     add = (record) => {
-        axios.post('http://localhost:3000/train/add', record)
+        axios.post(`http://localhost:3000/train/add`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -47,7 +47,7 @@ export default class Train extends Component {
     }
 
     edit = (record) => {
-        axios.post('http://localhost:3000/train/edit', record)
+        axios.post(`http://localhost:3000/train/edit`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

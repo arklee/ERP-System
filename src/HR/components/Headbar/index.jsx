@@ -15,7 +15,7 @@ export default class Headbar extends Component {
     }
 
     onSearch = value => {
-        axios.get(`http://localhost:3000/searchid?id=`+value).then(
+        axios.get(`http://localhost:3000/searchid?id=${value}`).then(
             response => {
                 this.setState({current:response.data})
                 this.props.isSearch(this.state.current.id)

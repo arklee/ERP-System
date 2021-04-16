@@ -24,7 +24,7 @@ class Attending extends Component {
     ];
 
     delete = (record) => () => {
-        axios.post('http://localhost:3000/attending/delete', record)
+        axios.post(`http://localhost:3000/attending/delete`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -48,7 +48,7 @@ class Attending extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/attending')
+        axios.get(`http://localhost:3000/attending?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })

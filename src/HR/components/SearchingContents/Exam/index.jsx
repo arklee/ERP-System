@@ -12,7 +12,7 @@ class Exam extends Component {
     state = {dataSource:[]}
 
     componentDidMount() {
-        axios.get('http://localhost:3000/exam')
+        axios.get(`http://localhost:3000/exam?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })

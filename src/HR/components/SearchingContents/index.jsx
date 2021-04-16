@@ -11,8 +11,6 @@ import Overall from "./Overall";
 import Judge from "./Judge";
 import Home from "./Home";
 
-export const {Provider,Consumer} = React.createContext("默认名称");
-
 const { Content } = Layout;
 
 class SearchingContents extends Component {
@@ -42,21 +40,19 @@ class SearchingContents extends Component {
                     <Breadcrumb.Item>{this.query[this.state.query]}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Layout style={{ padding: '24px 0', minHeight: '80vh', background: '#fff' }}>
-                    <Provider value={id}>
-                    <SidebarQuery handleQuery={this.handleQuery}/>
+                    <SidebarQuery id={id} handleQuery={this.handleQuery}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
-                            <Route path="/hr/search/home" component={Home}/>
-                            <Route path="/hr/search/train" component={Train}/>
-                            <Route path="/hr/search/document" component={Document}/>
-                            <Route path="/hr/search/attending" component={Attending}/>
-                            <Route path="/hr/search/exam" component={Exam}/>
-                            <Route path="/hr/search/overall" component={Overall}/>
-                            <Route path="/hr/search/judge" component={Judge}/>
+                            <Route path="/hr/search/home" render={(props) => (<Home {...this.props}/>)}/>
+                            <Route path="/hr/search/train" render={(props) => (<Train {...this.props} user={this.props.user} id={id}/>)}/>
+                            <Route path="/hr/search/document" render={(props) => (<Document {...this.props} id={id}/>)}/>
+                            <Route path="/hr/search/attending" render={(props) => (<Attending {...this.props} user={this.props.user} id={id}/>)}/>
+                            <Route path="/hr/search/exam" render={(props) => (<Exam {...this.props} user={this.props.user} id={id}/>)}/>
+                            <Route path="/hr/search/overall" render={(props) => (<Overall {...this.props} id={id}/>)}/>
+                            <Route path="/hr/search/judge" render={(props) => (<Judge {...this.props} user={this.props.user} id={id}/>)}/>
                             <Redirect to="/hr/search/home"/>
                         </Switch>
                     </Content>
-                    </Provider>
                 </Layout>
             </Content>
         );

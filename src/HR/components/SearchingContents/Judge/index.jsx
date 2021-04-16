@@ -9,7 +9,7 @@ class Judge extends Component {
     state = {judge:[]}
 
     componentDidMount() {
-        axios.get('http://localhost:3000/judge')
+        axios.get(`http://localhost:3000/judge?id=${this.props.id}`)
             .then(response => {
                 this.setState({judge:response.data})
             })
