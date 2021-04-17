@@ -12,7 +12,7 @@ export default class Headbar extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/stuff/searchid?id=${this.props.id}`).then(
+        axios.get(`http://localhost:3000/company/searchid?id=${this.props.id}`).then(
             response => {
                 this.setState({current:response.data})
             }
@@ -25,11 +25,10 @@ export default class Headbar extends Component {
             <Header style={{background: '#ffffff'}}>
                 <Row justify="end">
                     <Space align="center">
-                        <Text type="secondary">我的信息：</Text>
                         <Divider type="vertical" />
-                        <Text>姓名：{current.name===null? '请求错误':current.name}</Text>
+                        <Text>公司名：{current.name===null? '请求错误':current.name}</Text>
                         <Divider type="vertical" />
-                        <Text>身份证号：{current.id===null? '请求错误':"**************-"+current.id.slice(-4)}</Text>
+                        <Text>公司ID：{current.id===null? '请求错误':current.id}</Text>
                         <Divider type="vertical" />
                     </Space>
                 </Row>

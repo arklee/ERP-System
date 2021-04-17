@@ -13,13 +13,13 @@ app.use(bodyParser.json())
 
 app.get('/login', (request,response)=>{
 	const data = {info:'failed'}
-	if (request.query.username === 'hr' && request.query.password === '332') {
+	if (request.query.username === '1234567' && request.query.password === '332') {
 		data.info = 'hr'
 		console.log('success hr')
-	} else if (request.query.username === 'stuff' && request.query.password === '233') {
+	} else if (request.query.username === '7654321' && request.query.password === '233') {
 		data.info = 'stuff'
 		console.log('success stuff')
-	} else if (request.query.username === 'company' && request.query.password === '3323223') {
+	} else if (request.query.username === 'company1' && request.query.password === '3323223') {
 		data.info = 'company'
 		console.log('success company')
 	}
@@ -279,12 +279,20 @@ app.post('/exam/edit',(request,response)=>{
 	response.send(dataSource)
 })
 
-app.get('/feed',(request,response)=>{
+app.get('/hrFeed',(request,response)=>{
 	const dataSource = {data:[
 		{stuff_name:"茗栋",stuff_id:"135",judge_id:"123",content:"我认为，该评价中xxxxxxxxxxx不符实际",},
 		{stuff_name:"翔",stuff_id:"425",judge_id:"125",content:"我认为，该评价中xxxasddasd不符实际",},
 		{stuff_name:"方舟",stuff_id:"235",judge_id:"433",content:"我认为，该评价中xxv32424xxx不符实际"}
-	],rate:0.025}//我的账户信息
+	],rate:0.025}//hr收到的申诉
+	response.send(dataSource)
+})
+
+app.get('/StuffFeed',(request,response)=>{
+	const dataSource = [
+		{hr_id:"#321",judge_id:"123",content:"我认为，该评价中xxxxxxxxxxx不符实际，我xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",},
+		{hr_id:"#322",judge_id:"125",content:"我认为，该评价中xxxasddasd不符实际，我xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",},
+	]//员工发起的申诉
 	response.send(dataSource)
 })
 
@@ -345,7 +353,13 @@ app.post('/judge/edit',(request,response)=>{
 })
 
 app.get('/stuff/searchid',(request,response)=>{
-	const searchid = {id:'342401200001070816',name: '李四'} //查询员工（顶栏上的功能）
+	const searchid = {id:request.query.id,name: '李四'} //查询员工（顶栏上的功能）
+	response.send(searchid)
+	console.log(request.query.id)
+})
+
+app.get('/company/searchid',(request,response)=>{
+	const searchid = {id:request.query.id,name: '钓鱼公司'} //查询公司（顶栏上的功能）
 	response.send(searchid)
 	console.log(request.query.id)
 })

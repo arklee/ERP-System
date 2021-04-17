@@ -12,7 +12,7 @@ class Stuff extends Component {
             <Layout style={{ minHeight: '100vh' }}>
                 <SidebarAll/>
                 <Layout>
-                    <Headbar/>
+                    <Headbar id={this.props.id}/>
                     <Switch>
                         <Route path="/stuff/account" component={ModifyMyContents}/>
                         <Route path="/stuff/search" component={SearchingContents}/>

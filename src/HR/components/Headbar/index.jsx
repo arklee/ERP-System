@@ -33,7 +33,7 @@ export default class Headbar extends Component {
                         <Divider type="vertical" />
                         <Text>姓名：{current.name===null? '未查询':current.name}</Text>
                         <Divider type="vertical" />
-                        <Text>身份证号：{current.id===null? '未查询':current.id}</Text>
+                        <Text>身份证号：{current.id===null? '未查询':"**************-"+current.id.slice(-4)}</Text>
                         <Divider type="vertical" />
                         <Search
                             className="search-bar"

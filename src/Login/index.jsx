@@ -24,9 +24,9 @@ class Login extends Component {
     onFinish = (values) => {
         axios.get(`http://localhost:3000/login?username=${values.username}&password=${values.password}`).then(
             response => {
+                this.props.getID(values.username)
                 if (response.data.info === 'hr') {
                     this.props.history.push(`/hr`)
-                    this.props.getID(values.username)
                 } else if (response.data.info === 'stuff') {
                     this.props.history.push(`/stuff`)
                 } else if (response.data.info === 'company') {
