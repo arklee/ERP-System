@@ -26,6 +26,7 @@ class Sidebar extends Component {
                     mode="inline"
                     style={{ height: '100%' }}
                     onClick={this.handleClick}
+                    defaultSelectedKeys="info"
                 >
                     <Menu.Item key="info" icon={<FileTextFilled />}>公司基本信息</Menu.Item>
                     <Menu.Item key="hr" icon={<HourglassFilled />}>HR账户管理</Menu.Item>

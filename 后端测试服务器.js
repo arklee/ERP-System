@@ -313,6 +313,22 @@ app.get('/account',(request,response)=>{
 	response.send(hrInfo)
 })
 
+app.get('/companyInfo',(request,response)=>{
+	const companyInfo = {
+		name: "钓鱼公司",
+		id: "#1233222",
+		foundTime: "2014-02-07",
+		intro: "中国建筑集团有限公司（简称中建集团），正式组建于1982年，是我国专业化发展最久、市场化经营最早、一体化程度最高、全球规模最大的投资建设集团之一。\n" +
+			"\n" +
+			"中建集团主要以上市企业中国建筑股份有限公司（股票简称：中国建筑，股票代码601668.SH）为平台开展经营管理活动，拥有上市公司7家，二级控股子公司100余家。",
+		location: "四川省成都市川大路二段，江安校区",
+		password: "123123",
+		hrAccount:3,
+		score: 64
+	}//公司信息
+	response.send(companyInfo)
+})
+
 app.get('/judge',(request,response)=>{
 	const judge = [
 		{id:"#1231",company:'钓鱼公司', hrName:'李大象', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
@@ -362,6 +378,69 @@ app.get('/company/searchid',(request,response)=>{
 	const searchid = {id:request.query.id,name: '钓鱼公司'} //查询公司（顶栏上的功能）
 	response.send(searchid)
 	console.log(request.query.id)
+})
+
+app.get('/hrAccount',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21332',
+			name:'阳智',
+			score: '63'
+		},
+		{
+			id: '#21333',
+			name:'李响',
+			score: '12'
+		},
+		{
+			id: '#22136',
+			name:'武学要',
+			score: '43'
+		}
+	]//hr列表
+	response.send(dataSource)
+})
+
+app.post('/hrAccount/add',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21332',
+			name:'阳智',
+			score: '63'
+		},
+		{
+			id: '#21333',
+			name:'李响',
+			score: '12'
+		},
+		{
+			id: '#22136',
+			name:'武学要',
+			score: '43'
+		}
+	]//hr列表
+	response.send(dataSource)
+})
+
+app.post('/hrAccount/delete',(request,response)=>{
+	const dataSource= [
+		{
+			id: '#21332',
+			name:'阳智',
+			score: '63'
+		},
+		{
+			id: '#21333',
+			name:'李响',
+			score: '12'
+		},
+		{
+			id: '#22136',
+			name:'武学要',
+			score: '43'
+		}
+	]//hr列表
+	response.send(dataSource)
 })
 
 app.listen(5000,(err)=>{
