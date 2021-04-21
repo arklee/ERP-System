@@ -33,7 +33,8 @@ class Judge extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/default/evaluation_edit?idhr=${this.props.user}&id=${this.props.id}`, record)
+        console.log({json1:JSON.stringify(record)})
+        axios.post(`http://localhost:3000/default/evaluation_modify?idhr=${this.props.user}&id=${this.props.id}`, {json1:JSON.stringify(record)},{headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
             .then(response => {
                 message.success('修改成功')
                 this.setState({judge:response.data})
@@ -57,12 +58,12 @@ class Judge extends Component {
                 </Row>
                 <Divider/>
                 {
-                    judge.map(item => {
+                    judge.map((item,index) => {
                         return (
                             <>
                                 <Row justify="end" gutter={[48, 8]}>
                                     <Col>
-                                        <EditJudge edit={this.edit} record={item}/>
+                                        <EditJudge edit={this.edit} record={item} index={index}/>
                                     </Col>
                                     <Col>
                                         <Button onClick={this.delete(item)} type="dashed" danger>删除</Button>

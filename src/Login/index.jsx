@@ -25,11 +25,11 @@ class Login extends Component {
         axios.get(`http://localhost:3000/default/login?id=${values.username}&password=${values.password}`).then(
             response => {
                 this.props.getID(values.username)
-                if (response.data.info === 'hr') {
+                if (response.data === 'hr') {
                     this.props.history.push(`/hr`)
-                } else if (response.data.info === 'stuff') {
+                } else if (response.data === 'stuff') {
                     this.props.history.push(`/stuff`)
-                } else if (response.data.info === 'company') {
+                } else if (response.data === 'company') {
                     this.props.history.push(`/company`)
                 } else {
                     message.warning('用户名或密码错误');

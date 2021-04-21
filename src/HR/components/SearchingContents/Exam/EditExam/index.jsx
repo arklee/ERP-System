@@ -44,7 +44,7 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                     <Input/>
                 </Form.Item>
                 <Form.Item name="performtime" label="季度">
-                    <DatePicker defaultValue={moment(record.season, 'YYYY-MM-DD')}/>
+                    <DatePicker defaultValue={moment(record.performtime, 'YYYY-MM-DD')}/>
                 </Form.Item>
                 <Form.Item name="degree" label="绩效等级">
                     <Select placeholder="请选择一个评级">
@@ -64,7 +64,7 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
 const EditExam = (props) => {
     const [visible, setVisible] = useState(false);
 
-    const onCreate = (values) => {
+    const onCreate = (values,) => {
         //console.log('Received values of form: ', values);
         setVisible(false);
         props.edit(values)
