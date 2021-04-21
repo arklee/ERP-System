@@ -11,7 +11,6 @@ import Overall from "./Overall";
 import Judge from "./Judge";
 import Home from "./Home";
 
-
 const { Content } = Layout;
 
 class SearchingContents extends Component {
@@ -43,13 +42,13 @@ class SearchingContents extends Component {
                     <SidebarQuery handleQuery={this.handleQuery} id={this.props.id}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
-                            <Route path="/stuff/search/home" component={Home}/>
-                            <Route path="/stuff/search/train" component={Train}/>
-                            <Route path="/stuff/search/document" component={Document}/>
-                            <Route path="/stuff/search/attending" component={Attending}/>
-                            <Route path="/stuff/search/exam" component={Exam}/>
-                            <Route path="/stuff/search/overall" component={Overall}/>
-                            <Route path="/stuff/search/judge" component={Judge}/>
+                            <Route path="/stuff/search/home" render={(props) => (<Home {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/train" render={(props) => (<Train {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/document" render={(props) => (<Document {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/attending" render={(props) => (<Attending {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/exam" render={(props) => (<Exam {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/overall" render={(props) => (<Overall {...props} id={this.props.id}/>)}/>
+                            <Route path="/stuff/search/judge" render={(props) => (<Judge {...props} id={this.props.id}/>)}/>
                             <Redirect to="/stuff/search/home"/>
                         </Switch>
                     </Content>

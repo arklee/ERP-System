@@ -9,22 +9,22 @@ class Document extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/document?id=${this.props.id}`).then(
+        axios.get(`http://localhost:3000/default/dossier?id=${this.props.id}`).then(
             response => {
                 this.setState({info:response.data})
             },
             () => {
                 this.setState({info:{
-                        name:'请求失败',
+                        username:'请求失败',
                         id:'请求失败',
                         sex:'请求失败',
                         nationality:'请求失败',
-                        nation:'请求失败',
-                        degree:'请求失败',
+                        ethnicity:'请求失败',
+                        education:'请求失败',
                         major:'请求失败',
-                        College:"请求失败",
-                        graduatedTime:"请求失败",
-                        event:"请求失败"
+                        school:"请求失败",
+                        graduated_time:"请求失败",
+                        majorevents:"请求失败"
                 }})
             }
         )
@@ -42,21 +42,21 @@ class Document extends Component {
                 />
                 <Divider />
                 <Descriptions title="李翔用户信息" bordered>
-                    <Descriptions.Item label="姓名">{info.name}</Descriptions.Item>
+                    <Descriptions.Item label="姓名">{info.username}</Descriptions.Item>
                     <Descriptions.Item label="性别">{info.sex}</Descriptions.Item>
                     <Descriptions.Item label="国籍">{info.nationality}</Descriptions.Item>
                     <Descriptions.Item label="身份证号" span={2}>
                         {info.id}
                     </Descriptions.Item>
-                    <Descriptions.Item label="民族">{info.nation}</Descriptions.Item>
+                    <Descriptions.Item label="民族">{info.ethnicity}</Descriptions.Item>
                     <Descriptions.Item label="状态" span={2}>
                         <Badge status="processing" text="求职中" />
                     </Descriptions.Item>
-                    <Descriptions.Item label="学历">{info.degree}</Descriptions.Item>
-                    <Descriptions.Item label="院校">{info.College}</Descriptions.Item>
+                    <Descriptions.Item label="学历">{info.education}</Descriptions.Item>
+                    <Descriptions.Item label="院校">{info.school}</Descriptions.Item>
                     <Descriptions.Item label="专业">{info.major}</Descriptions.Item>
-                    <Descriptions.Item label="毕业时间">{info.graduatedTime}</Descriptions.Item>
-                    <Descriptions.Item label="重大事件">{info.event}</Descriptions.Item>
+                    <Descriptions.Item label="毕业时间">{info.graduated_time}</Descriptions.Item>
+                    <Descriptions.Item label="重大事件">{info.majorevents}</Descriptions.Item>
                 </Descriptions>
             </>
         );

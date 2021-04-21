@@ -14,8 +14,8 @@ class Stuff extends Component {
                 <Layout>
                     <Headbar id={this.props.id}/>
                     <Switch>
-                        <Route path="/stuff/account" component={ModifyMyContents}/>
-                        <Route path="/stuff/search" component={SearchingContents}/>
+                        <Route path="/stuff/account" render={(props) => (<ModifyMyContents {...props} id={this.props.id}/>)}/>
+                        <Route path="/stuff/search" render={(props) => (<SearchingContents {...props} id={this.props.id}/>)}/>
                         <Redirect to="/stuff/search"/>
                     </Switch>
                 </Layout>

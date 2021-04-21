@@ -22,7 +22,7 @@ const tailLayout = {
 class Login extends Component {
 
     onFinish = (values) => {
-        axios.get(`http://localhost:3000/login?username=${values.username}&password=${values.password}`).then(
+        axios.get(`http://localhost:3000/default/login?id=${values.username}&password=${values.password}`).then(
             response => {
                 this.props.getID(values.username)
                 if (response.data.info === 'hr') {

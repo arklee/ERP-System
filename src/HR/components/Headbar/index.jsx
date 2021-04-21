@@ -11,11 +11,11 @@ const {Header} = Layout
 export default class Headbar extends Component {
 
     state = {
-        current:{name:null,id:null},
+        current:{username:null,id:null},
     }
 
     onSearch = value => {
-        axios.get(`http://localhost:3000/searchid?id=${value}`).then(
+        axios.get(`http://localhost:3000/default/search_user?id=${value}`).then(
             response => {
                 this.setState({current:response.data})
                 this.props.isSearch(this.state.current.id)
@@ -31,7 +31,7 @@ export default class Headbar extends Component {
                     <Space align="center">
                         <Text type="secondary">当前查询员工：</Text>
                         <Divider type="vertical" />
-                        <Text>姓名：{current.name===null? '未查询':current.name}</Text>
+                        <Text>姓名：{current.username===null? '未查询':current.username}</Text>
                         <Divider type="vertical" />
                         <Text>身份证号：{current.id===null? '未查询':"**************-"+current.id.slice(-4)}</Text>
                         <Divider type="vertical" />
