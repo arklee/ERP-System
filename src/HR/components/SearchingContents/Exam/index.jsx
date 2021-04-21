@@ -12,14 +12,14 @@ class Exam extends Component {
     state = {dataSource:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/exam?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/perform_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/exam/delete?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_delete?idhr=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -27,7 +27,7 @@ class Exam extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/exam/add?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_add?idhr=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -35,7 +35,7 @@ class Exam extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/exam/edit?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_edit?idhr=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

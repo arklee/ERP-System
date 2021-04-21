@@ -9,22 +9,23 @@ class Judge extends Component {
     state = {judge:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/judge?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/evaluation_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({judge:response.data})
             })
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/judge/delete?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/evaluation_delete?idhr=${this.props.user}&id=${this.props.id}`,{idevaluation:record.idevaluation})
             .then(response => {
+                console.log(record.idevaluation)
                 message.warning('删除成功')
                 this.setState({judge:response.data})
             })
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/judge/add?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/evaluation_add?idhr=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('添加成功')
                 this.setState({judge:response.data})
@@ -32,7 +33,7 @@ class Judge extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/judge/edit?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/evaluation_edit?idhr=${this.props.user}&id=${this.props.id}`, record)
             .then(response => {
                 message.success('修改成功')
                 this.setState({judge:response.data})
@@ -57,7 +58,6 @@ class Judge extends Component {
                 <Divider/>
                 {
                     judge.map(item => {
-                        console.log(item)
                         return (
                             <>
                                 <Row justify="end" gutter={[48, 8]}>
@@ -68,11 +68,10 @@ class Judge extends Component {
                                         <Button onClick={this.delete(item)} type="dashed" danger>删除</Button>
                                     </Col>
                                 </Row>
-                                <Descriptions title={"评价编号："+item.id} bordered>
-                                    <Descriptions.Item  label="公司">{item.company}</Descriptions.Item>
-                                    <Descriptions.Item  label="HR姓名">{item.hrName}</Descriptions.Item>
-                                    <Descriptions.Item  label="HR ID">{item.hrID}</Descriptions.Item>
-                                    <Descriptions.Item label="评价">{item.statement}</Descriptions.Item>
+                                <Descriptions title={"评价编号："+item.idevaluation} bordered>
+                                    <Descriptions.Item  label="HR ID" span={2}>{item.idhr}</Descriptions.Item>
+                                    <Descriptions.Item  label="HR 信誉分">{item.hrscore}</Descriptions.Item>
+                                    <Descriptions.Item label="评价">{item.evaluationinclusion}</Descriptions.Item>
                                 </Descriptions>
                                 <Divider/>
                             </>

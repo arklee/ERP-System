@@ -27,19 +27,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 layout="vertical"
                 name="form_in_modal"
             >
-                <Form.Item name="id" label="评价编号" rules={[{required: true, message: '必须输入id',},]}>
+                <Form.Item name="idevaluation" label="评价编号">
                     <Input/>
                 </Form.Item>
-                <Form.Item name="company" label="公司">
-                    <Input/>
-                </Form.Item>
-                <Form.Item name="hrName" label="hr姓名">
-                    <Input/>
-                </Form.Item>
-                <Form.Item name="hrID" label="hrID">
-                    <Input/>
-                </Form.Item>
-                <Form.Item name="result" label="绩效等级">
+                <Form.Item name="evaluationinclusion" label="评价内容">
                     <TextArea/>
                 </Form.Item>
             </Form>

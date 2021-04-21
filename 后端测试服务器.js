@@ -11,15 +11,15 @@ app.use((request,response,next)=>{
 
 app.use(bodyParser.json())
 
-app.get('/login', (request,response)=>{
+app.get('/default/login', (request,response)=>{
 	const data = {info:'failed'}
-	if (request.query.username === '1234567' && request.query.password === '332') {
+	if (request.query.id === '1234567' && request.query.password === '332') {
 		data.info = 'hr'
 		console.log('success hr')
-	} else if (request.query.username === '7654321' && request.query.password === '233') {
+	} else if (request.query.id === '7654321' && request.query.password === '233') {
 		data.info = 'stuff'
 		console.log('success stuff')
-	} else if (request.query.username === 'company1' && request.query.password === '3323223') {
+	} else if (request.query.id === 'company1' && request.query.password === '3323223') {
 		data.info = 'company'
 		console.log('success company')
 	}
@@ -31,28 +31,24 @@ app.post('/register', (request,response)=> {
 	response.send(true)
 })
 
-app.get('/searchid',(request,response)=>{
-	const searchid = [
-		{id:'342401200001070815',name: '李大向'},
-		{id:'342401200001070816',name: '李四'},
-		{id:'342401200001070817',name: '李方舟'},
-	]//查询员工（顶栏上的功能）
-	response.send(searchid[0])
+app.get('/default/search_user',(request,response)=>{
+	const searchid = {id:'342401200001070815',username: '李大向'}//查询员工（顶栏上的功能）
+	response.send(searchid)
 	console.log(request.query.id)
 })
 
-app.get('/document',(request,response)=>{
+app.get('/default/dossier',(request,response)=>{
 	const searchid = {
-		name:'李大翔',
+		username:'李大翔',
 		id:'342421199502030715',
 		sex:'男',
 		nationality:'中国',
-		nation:'汉',
-		degree:'本科',
+		ethnicity:'汉',
+		ethnicity:'本科',
 		major:'工业工程',
-		College:"四川大学",
-		graduatedTime:"2014-07-04",
-		event:"20XX/7---20XX/11:在浙江锦阳⼈⼒资源发展有限公司上班，先后担任项⽬部专\n" +
+		school:"四川大学",
+		graduated_time:"2014-07-04",
+		majorevents:"20XX/7---20XX/11:在浙江锦阳⼈⼒资源发展有限公司上班，先后担任项⽬部专\n" +
 			"                        员职务,熟悉相关业 务流程，能独⽴操作相关业务。\n" +
 			"                        20XX/10--20XX/3：爱⼼活动|⻓期辅助孤寡⽼⼈;组织“⼼灵有约”献爱⼼活动;\n" +
 			"                        策划并参与了“师⽣共 建哲社林”⼤型植树活动\n" +
@@ -329,40 +325,40 @@ app.get('/companyInfo',(request,response)=>{
 	response.send(companyInfo)
 })
 
-app.get('/judge',(request,response)=>{
+app.get('/default/evaluation_inquiry',(request,response)=>{
 	const judge = [
-		{id:"#1231",company:'钓鱼公司', hrName:'李大象', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
-		{id:"#1234",company:'王老吉', hrName:'吴雪药', hrID:"#3326",statement:"良好的个⼈形象和素养，专业技能或业务⽔平优秀，为公司业务创造更多机会和效益，受公司客户及合作企业好评，为公司创造出较好的企业效益或社会效益;⼯作认真负责，⽤⼼主动，服从整体安排，爱岗敬业，乐于助⼈，与同事相处融洽，业务知识扎实，业务⽔平优秀，能带动东区的给为同事⽤⼼⼯作，胜任东区⼤区经理⼯作;⼯作出⾊，业务熟悉，为我们成⽴起榜样。"},
-		{id:"#1237",company:'万达集团', hrName:'王思聪', hrID:"#1234",statement:"该同事⼯作上勤勤恳恳，任劳任怨，认真负责，业务⽔平也在学习中不断提⾼，关⼼同事，⼗分值得⼤家学习，新晋社会如此努⼒难能可贵，今年完成了公司制定的任务，态度端正，办事⽅法有改善，⼯作有进步，该员⼯做事情踏踏实实做⼈本分，能够虚⼼理解市场招商经理的推荐，努⼒学习不⾜之处;⼤⼒开发所负责区域的空⽩品种，并⽤⼼和经理进⾏各种环节的沟通;在_年x⽉份进步异常迅速;对待⼯作兢兢业业，处处为公司思考，不记个⼈得失"}
+		{idevaluation:"#1231",hrscore:'23', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'123', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'43', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 	]//评价
 	response.send(judge)
 })
 
-app.post('/judge/add',(request,response)=>{
+app.post('/default/evaluation_add',(request,response)=>{
 	const judge = [
-		{id:"#1241",company:'肯特牛', hrName:'户名动', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
-		{id:"#1231",company:'钓鱼公司', hrName:'李大象', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
-		{id:"#1234",company:'王老吉', hrName:'吴雪药', hrID:"#3326",statement:"良好的个⼈形象和素养，专业技能或业务⽔平优秀，为公司业务创造更多机会和效益，受公司客户及合作企业好评，为公司创造出较好的企业效益或社会效益;⼯作认真负责，⽤⼼主动，服从整体安排，爱岗敬业，乐于助⼈，与同事相处融洽，业务知识扎实，业务⽔平优秀，能带动东区的给为同事⽤⼼⼯作，胜任东区⼤区经理⼯作;⼯作出⾊，业务熟悉，为我们成⽴起榜样。"},
-		{id:"#1237",company:'万达集团', hrName:'王思聪', hrID:"#1234",statement:"该同事⼯作上勤勤恳恳，任劳任怨，认真负责，业务⽔平也在学习中不断提⾼，关⼼同事，⼗分值得⼤家学习，新晋社会如此努⼒难能可贵，今年完成了公司制定的任务，态度端正，办事⽅法有改善，⼯作有进步，该员⼯做事情踏踏实实做⼈本分，能够虚⼼理解市场招商经理的推荐，努⼒学习不⾜之处;⼤⼒开发所负责区域的空⽩品种，并⽤⼼和经理进⾏各种环节的沟通;在_年x⽉份进步异常迅速;对待⼯作兢兢业业，处处为公司思考，不记个⼈得失"}
+		{idevaluation:"#1231",hrscore:'53', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'64', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'23', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'43', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 	]//评价
 	console.log("成功添加评价"+JSON.stringify(request.body))
 	response.send(judge)
 })
 
-app.post('/judge/delete',(request,response)=>{
+app.post('/default/evaluation_delete',(request,response)=>{
 	const judge = [
-		{id:"#1234",company:'王老吉', hrName:'吴雪药', hrID:"#3326",statement:"良好的个⼈形象和素养，专业技能或业务⽔平优秀，为公司业务创造更多机会和效益，受公司客户及合作企业好评，为公司创造出较好的企业效益或社会效益;⼯作认真负责，⽤⼼主动，服从整体安排，爱岗敬业，乐于助⼈，与同事相处融洽，业务知识扎实，业务⽔平优秀，能带动东区的给为同事⽤⼼⼯作，胜任东区⼤区经理⼯作;⼯作出⾊，业务熟悉，为我们成⽴起榜样。"},
-		{id:"#1237",company:'万达集团', hrName:'王思聪', hrID:"#1234",statement:"该同事⼯作上勤勤恳恳，任劳任怨，认真负责，业务⽔平也在学习中不断提⾼，关⼼同事，⼗分值得⼤家学习，新晋社会如此努⼒难能可贵，今年完成了公司制定的任务，态度端正，办事⽅法有改善，⼯作有进步，该员⼯做事情踏踏实实做⼈本分，能够虚⼼理解市场招商经理的推荐，努⼒学习不⾜之处;⼤⼒开发所负责区域的空⽩品种，并⽤⼼和经理进⾏各种环节的沟通;在_年x⽉份进步异常迅速;对待⼯作兢兢业业，处处为公司思考，不记个⼈得失"}
+		{idevaluation:"#1231",hrscore:'45', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'64', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 	]//评价
-	console.log("成功删除id为"+request.body.id+"的评价")
+	console.log("成功删除id为"+request.body.idevaluation+"的评价")
 	response.send(judge)
 })
 
-app.post('/judge/edit',(request,response)=>{
+app.post('/default/evaluation_edit',(request,response)=>{
 	const judge = [
-		{id:"#1231",company:'钓鱼公司', hrName:'李大象', hrID:"#3323",statement:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。"},
-		{id:"#1234",company:'王老吉', hrName:'吴雪药', hrID:"#3326",statement:"良好的个⼈形象和素养，专业技能或业务⽔平优秀，为公司业务创造更多机会和效益，受公司客户及合作企业好评，为公司创造出较好的企业效益或社会效益;⼯作认真负责，⽤⼼主动，服从整体安排，爱岗敬业，乐于助⼈，与同事相处融洽，业务知识扎实，业务⽔平优秀，能带动东区的给为同事⽤⼼⼯作，胜任东区⼤区经理⼯作;⼯作出⾊，业务熟悉，为我们成⽴起榜样。"},
-		{id:"#1237",company:'万达集团', hrName:'王思聪', hrID:"#1234",statement:"该同事⼯作上勤勤恳恳，任劳任怨，认真负责，业务⽔平也在学习中不断提⾼，关⼼同事，⼗分值得⼤家学习，新晋社会如此努⼒难能可贵，今年完成了公司制定的任务，态度端正，办事⽅法有改善，⼯作有进步，该员⼯做事情踏踏实实做⼈本分，能够虚⼼理解市场招商经理的推荐，努⼒学习不⾜之处;⼤⼒开发所负责区域的空⽩品种，并⽤⼼和经理进⾏各种环节的沟通;在_年x⽉份进步异常迅速;对待⼯作兢兢业业，处处为公司思考，不记个⼈得失"}
+		{idevaluation:"#1231",hrscore:'64', idhr:"#3323",evaluationinclusion:"事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'32', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
+		{idevaluation:"#1231",hrscore:'71', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 	]//评价
 	console.log("成功修改评价信息"+JSON.stringify(request.body))
 	response.send(judge)
