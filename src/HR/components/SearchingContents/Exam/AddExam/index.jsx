@@ -27,19 +27,19 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 layout="vertical"
                 name="form_in_modal"
             >
-                <Form.Item name="id" label="绩效id" rules={[{required: true, message: '必须输入id',},]}>
+                <Form.Item name="idperform" label="绩效id" rules={[{required: true, message: '必须输入id',},]}>
                     <Input/>
                 </Form.Item>
-                <Form.Item name="hr" label="HR">
+                <Form.Item name="idhr" label="HR">
                     <Input/>
                 </Form.Item>
                 <Form.Item name="company" label="公司">
                     <Input/>
                 </Form.Item>
-                <Form.Item name="season" label="季度">
+                <Form.Item name="performtime" label="季度">
                     <DatePicker/>
                 </Form.Item>
-                <Form.Item name="result" label="绩效等级">
+                <Form.Item name="degree" label="绩效等级">
                     <Select placeholder="请选择一个评级">
                         <Option value="A">A</Option>
                         <Option value="B">B</Option>

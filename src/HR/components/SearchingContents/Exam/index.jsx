@@ -43,11 +43,11 @@ class Exam extends Component {
     }
 
     columns = [
-        {title: '绩效ID', dataIndex: 'id', key: 'id',},
-        {title: 'HR', dataIndex: 'hr', key: 'hr',},
+        {title: '绩效ID', dataIndex: 'idperform', key: 'idperform',},
+        {title: 'HR', dataIndex: 'idhr', key: 'idhr',},
         {title: '公司', dataIndex: 'company', key: 'company',},
-        {title: '季度', dataIndex: 'season', key: 'season'},
-        {title: '绩效等级', dataIndex: 'result', key: 'result',},
+        {title: '季度', dataIndex: 'performtime', key: 'season'},
+        {title: '绩效等级', dataIndex: 'degree', key: 'degree',},
         {
             title: '',
             dataIndex: 'delete',

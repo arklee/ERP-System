@@ -196,7 +196,7 @@ app.post('/attending/edit',(request,response)=>{
 	response.send(dataSource)
 })
 
-app.get('/exam',(request,response)=>{
+app.get('/default/',(request,response)=>{
 	const dataSource = [
 		{id: '#21333', hr: '网大为', company: '钓鱼公司', season: '2019-01-25', result: 'A'},
 		{id: '#21334', hr: '李大象', company: '钓鱼公司', season: '2019-02-25', result: 'A'},
