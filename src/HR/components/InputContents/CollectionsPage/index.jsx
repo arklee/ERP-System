@@ -32,7 +32,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             >
                 <Row gutter={[64, 16]}>
                     <Col>
-                        <Form.Item name="name" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
+                        <Form.Item name="username" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                             <Input />
                         </Form.Item>
                         <Form.Item name="id" label="身份证号" rules={[{required: true, message: 'Please input the title of collection!',},]}>

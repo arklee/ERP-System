@@ -37,13 +37,13 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, companyInfo}) => {
                     <Input disabled/>
                 </Form.Item>
                 <Form.Item name="name" label="公司名">
-                    <Input/>
+                    <Input disabled/>
                 </Form.Item>
                 <Form.Item name="foundTime" label="成立时间">
-                    <DatePicker defaultValue={moment(companyInfo.foundTime, 'YYYY-MM-DD')}/>
+                    <DatePicker defaultValue={moment(companyInfo.foundTime, 'YYYY-MM-DD')} disabled/>
                 </Form.Item>
                 <Form.Item name="intro" label="公司介绍">
-                    <Input type="textarea"/>
+                    <Input type="textarea" disabled/>
                 </Form.Item>
                 <Form.Item name="password" label="密码">
                     <Input type="password"/>

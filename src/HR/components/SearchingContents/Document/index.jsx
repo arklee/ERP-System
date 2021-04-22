@@ -45,7 +45,7 @@ class Document extends Component {
                     <Descriptions.Item label="姓名">{info.username}</Descriptions.Item>
                     <Descriptions.Item label="性别">{info.sex}</Descriptions.Item>
                     <Descriptions.Item label="国籍">{info.nationality}</Descriptions.Item>
-                    <Descriptions.Item label="身份证号" span={2}>
+                    <Descriptions.Item label="证件" span={2}>
                         {info.id}
                     </Descriptions.Item>
                     <Descriptions.Item label="民族">{info.ethnicity}</Descriptions.Item>

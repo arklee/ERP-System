@@ -13,7 +13,7 @@ class Home extends Component {
     render() {
         return (
             <div className="site-card-wrapper">
-                <h1 className='home-title'>与今目标-员工查合作的优秀企业</h1>
+                <h1 className='home-title'>与今目标-安聘合作的优秀企业</h1>
                 <h3 className='home-subtitle'>多家国内优质企业与我们有合作，在这里您可以随意的查询这些企业的员工信息......</h3>
                 <Divider/>
                 <Row gutter={[16, 48]}>
@@ -49,7 +49,7 @@ class Home extends Component {
                     </Col>
                 </Row>
                 <Divider/>
-                <p className='home-detail'>员工查人才内调平台是面向全国中小微企业HR的人才内调平台，为您提供实时准确的全国人才的工作信息，同时为HR提供人才信息备份服务。每天上万份的工作信息为HR提供参考。人才内调上员工查。</p>
+                <p className='home-detail'>安聘人才内调平台是面向全国中小微企业HR的人才内调平台，为您提供实时准确的全国人才的工作信息，同时为HR提供人才信息备份服务。每天上万份的工作信息为HR提供参考。人才内调上员工查。</p>
             </div>
         );
     }

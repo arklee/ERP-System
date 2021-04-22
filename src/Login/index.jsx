@@ -58,7 +58,7 @@ class Login extends Component {
                 >
                     <Form.Item {...tailLayout} name="remember" valuePropName="checked">
                         <img style={{width: '75px',overflow:'hidden'}} src={today} alt=""/>
-                        <h1>今目标  员工查</h1>
+                        <h1>安聘</h1>
                         <p style={{color: 'darkgrey'}}>最好用的员工招聘信息管理系统</p>
                     </Form.Item>
                     <Form.Item

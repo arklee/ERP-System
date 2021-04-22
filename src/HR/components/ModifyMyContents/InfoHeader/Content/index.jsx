@@ -14,7 +14,7 @@ class Content extends Component {
                     <Descriptions.Item label="所在公司">{hrInfo.company}</Descriptions.Item>
                     <Descriptions.Item label="身份证号">{hrInfo.idCard}</Descriptions.Item>
                     <Descriptions.Item label="邮箱">{hrInfo.email}</Descriptions.Item>
-                    <Descriptions.Item label="密码">{hrInfo.password}</Descriptions.Item>
+                    <Descriptions.Item label="密码">**********</Descriptions.Item>
                 </Descriptions>
             </div>
         );

@@ -39,7 +39,7 @@ class Judge extends Component {
                         return (
                             <Row justify="space-around" align="middle">
                                 <Col span={20}>
-                                    <Descriptions title={"评价编号："+item.id} bordered>
+                                    <Descriptions title={"ID为 "+item.idevaluation+" 的评价"} bordered>
                                         <Descriptions.Item  label="HR ID" span={2}>{item.idhr}</Descriptions.Item>
                                         <Descriptions.Item  label="HR 信誉分">{item.hrscore}</Descriptions.Item>
                                         <Descriptions.Item label="评价">{item.evaluationinclusion}</Descriptions.Item>

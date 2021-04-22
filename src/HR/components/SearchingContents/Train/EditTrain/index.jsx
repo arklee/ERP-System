@@ -38,10 +38,10 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                     <Input />
                 </Form.Item>
                 <Form.Item name="begin" label="开始时间">
-                    <DatePicker defaultValue={moment(record.from, 'YYYY-MM-DD')}/>
+                    <DatePicker defaultValue={moment(record.begin, 'YYYY-MM-DD')}/>
                 </Form.Item>
                 <Form.Item name="end" label="结束时间">
-                    <DatePicker defaultValue={moment(record.to, 'YYYY-MM-DD')}/>
+                    <DatePicker defaultValue={moment(record.end, 'YYYY-MM-DD')}/>
                 </Form.Item>
                 <Form.Item name="grade" label="考核结果">
                     <Select placeholder="请选择一个评级">

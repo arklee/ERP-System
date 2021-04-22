@@ -27,7 +27,7 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                 layout="vertical"
                 name="form_in_modal"
                 initialValues={{
-                    id:record.id,
+                    idevaluation:record.idevaluation,
                 }}
             >
                 <Form.Item name="idevaluation" label="评价编号">
