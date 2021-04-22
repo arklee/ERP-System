@@ -8,13 +8,13 @@ export default class Train extends Component {
 
     info = (record) => () => {
         Modal.info({
-            title: '培训id为'+record.id+'的详细信息',
+            title: '培训id为'+record.idtrain+'的详细信息',
             content: (
                 <div>
-                    <p>培训id: {record.id}</p>
-                    <p>时间: {record.from}-{record.to}</p>
-                    <p>考核结果: {record.result}</p>
-                    <p>考核内容: {record.detail}</p>
+                    <p>培训id: {record.idtrain}</p>
+                    <p>时间: {record.begin}-{record.to}</p>
+                    <p>考核结果: {record.end}</p>
+                    <p>考核内容: {record.content}</p>
                 </div>
             ),
             onOk() {},
@@ -22,7 +22,7 @@ export default class Train extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/train')
+        axios.get(`http://localhost:3000/train?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
@@ -31,18 +31,18 @@ export default class Train extends Component {
     columns = [
         {
             title: '培训ID',
-            dataIndex: 'id',
-            key: 'id',
+            dataIndex: 'idtrain',
+            key: 'idtrain',
         },
         {
             title: '开始时间',
-            dataIndex: 'from',
-            key: 'from',
+            dataIndex: 'begin',
+            key: 'begin',
         },
         {
             title: '结束时间',
-            dataIndex: 'to',
-            key: 'to',
+            dataIndex: 'end',
+            key: 'end',
         },
         {
             title: '考核内容',
@@ -52,15 +52,15 @@ export default class Train extends Component {
         },
         {
             title: '考核结果',
-            dataIndex: 'result',
-            key: 'result',
+            dataIndex: 'grade',
+            key: 'grade',
         },
         {
             title: '详细信息',
             dataIndex: 'event',
             key: 'event',
-            render: (text, record) => <Button type="primary" onClick={this.info(record)}>详细信息</Button>
-        }
+            render: (text, record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>
+        },
     ];
 
     render() {

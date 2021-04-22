@@ -10,6 +10,7 @@ app.use((request,response,next)=>{
 })
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/default/login', (request,response)=>{
 	const data = {info:'failed'}
@@ -44,7 +45,7 @@ app.get('/default/dossier',(request,response)=>{
 		sex:'男',
 		nationality:'中国',
 		ethnicity:'汉',
-		ethnicity:'本科',
+		education:'本科',
 		major:'工业工程',
 		school:"四川大学",
 		graduated_time:"2014-07-04",
@@ -326,7 +327,7 @@ app.post('/default/evaluation_delete',(request,response)=>{
 	response.send(judge)
 })
 
-app.post('/default/evaluation_edit',(request,response)=>{
+app.post('/default/evaluation_modify',(request,response)=>{
 	const judge = [
 		{idevaluation:"#1231",hrscore:'64', idhr:"#3323",evaluationinclusion:"事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},
 		{idevaluation:"#1231",hrscore:'32', idhr:"#3323",evaluationinclusion:"这位员工思想上，为人正直，稳定、谦虚。事业心、进取心强，能设身处地为他人着想，热爱集体。要做一个具有良好专业技术水平又有高尚职业道德的优秀员工，爱岗敬业、诚实守信、遵纪守法、奉献社会。"},

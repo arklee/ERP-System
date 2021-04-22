@@ -2,22 +2,23 @@ import React, {Component} from 'react';
 import {Row, Col, Descriptions, Divider, message, PageHeader} from "antd";
 import axios from "axios";
 import EditJudge from "./EditJudge";
+import qs from "qs";
 
 class Judge extends Component {
 
     state = {judge:[]}
 
     componentDidMount() {
-        axios.get('http://localhost:3000/judge')
+        axios.get(`http://localhost:3000/default/evaluation_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({judge:response.data})
             })
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/postState?id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/postState?id=${this.props.id}`, qs.stringify({json1:record}))
             .then(response => {
-                message.success('修改成功')
+                message.success('申诉成功')
                 this.setState({judge:response.data})
             })
     }
@@ -39,10 +40,9 @@ class Judge extends Component {
                             <Row justify="space-around" align="middle">
                                 <Col span={20}>
                                     <Descriptions title={"评价编号："+item.id} bordered>
-                                        <Descriptions.Item  label="公司">{item.company}</Descriptions.Item>
-                                        <Descriptions.Item  label="HR姓名">{item.hrName}</Descriptions.Item>
-                                        <Descriptions.Item  label="HR ID">{item.hrID}</Descriptions.Item>
-                                        <Descriptions.Item label="评价">{item.statement}</Descriptions.Item>
+                                        <Descriptions.Item  label="HR ID" span={2}>{item.idhr}</Descriptions.Item>
+                                        <Descriptions.Item  label="HR 信誉分">{item.hrscore}</Descriptions.Item>
+                                        <Descriptions.Item label="评价">{item.evaluationinclusion}</Descriptions.Item>
                                     </Descriptions>
                                 </Col>
                                 <Col span={2}>

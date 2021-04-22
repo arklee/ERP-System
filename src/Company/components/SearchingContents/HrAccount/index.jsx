@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Table, Divider, PageHeader, Button, Modal, message, Col, Row} from 'antd';
 import axios from 'axios'
+import qs from 'qs';
 import AddHR from "./AddHR";
 
 export default class HrAccount extends Component {
@@ -9,10 +10,10 @@ export default class HrAccount extends Component {
 
     info = (record) => () => {
         Modal.info({
-            title: '培训id为'+record.id+'的详细信息',
+            title: 'id为'+record.idhr+'的HR信息',
             content: (
                 <div>
-                    <p>培训id: {record.id}</p>
+                    <p>HR ID: {record.idhr}</p>
                     <p>时间: {record.from}-{record.to}</p>
                     <p>考核结果: {record.result}</p>
                     <p>考核内容: {record.detail}</p>
@@ -23,14 +24,14 @@ export default class HrAccount extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/hrAccount?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/hrAccount?idcompany=${this.props.user}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/hrAccount/add?user=${this.props.user}`, record)
+        axios.post(`http://localhost:3000/hrAccount/add?idcompany=${this.props.user}`, qs.stringify({json1: record}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -38,7 +39,7 @@ export default class HrAccount extends Component {
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/hrAccount/delete?user=${this.props.user}`, record)
+        axios.post(`http://localhost:3000/hrAccount/delete?idcompany=${this.props.user}$idhr=${record.idhr}`)
             .then(response => {
                 message.warning('移除成功')
                 this.setState({dataSource:response.data})

@@ -8,7 +8,7 @@ class DemoLiquid extends Component {
         const {dataSource} = this.props;
         const all = [0,0,0]
         dataSource.map(dataItem => {
-            all[0] = all[0] + dataItem.lack
+            all[0] = all[0] + dataItem.absence
             all[1] = all[1] + dataItem.late
             all[2] = all[2] + dataItem.days
             return 0

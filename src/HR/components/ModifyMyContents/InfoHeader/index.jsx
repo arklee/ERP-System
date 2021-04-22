@@ -8,12 +8,11 @@ import axios from 'axios'
 
 class InfoHeader extends Component {
     state = {hrInfo:{
-            name: "请求错误",
+            username: "请求错误",
             sex: "请求错误",
-            idCard: "请求错误",
-            company: "请求错误",
+            idhr: "请求错误",
+            idcompany: "请求错误",
             number: "请求错误",
-            id: "请求错误",
             email: "请求错误",
             password: "请求错误",
             isVIP: false,

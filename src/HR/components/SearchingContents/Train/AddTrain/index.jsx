@@ -28,16 +28,16 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 layout="vertical"
                 name="form_in_modal"
             >
-                <Form.Item name="id" label="培训id" rules={[{required: true, message: 'Please input the title of collection!',},]}>
+                <Form.Item name="idtrain" label="培训id" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                     <Input />
                 </Form.Item>
-                <Form.Item name="from" label="开始时间">
+                <Form.Item name="begin" label="开始时间">
                     <DatePicker/>
                 </Form.Item>
-                <Form.Item name="to" label="结束时间">
+                <Form.Item name="end" label="结束时间">
                     <DatePicker/>
                 </Form.Item>
-                <Form.Item name="result" label="考核结果">
+                <Form.Item name="grade" label="考核结果">
                     <Select placeholder="请选择一个评级">
                         <Option value="A">A</Option>
                         <Option value="B">B</Option>
@@ -47,7 +47,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                         <Option value="f">F</Option>
                     </Select>
                 </Form.Item>
-                <Form.Item name="detail" label="考核内容">
+                <Form.Item name="content" label="考核内容">
                     <TextArea />
                 </Form.Item>
             </Form>

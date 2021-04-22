@@ -3,6 +3,7 @@ import {Breadcrumb, Divider, Layout, PageHeader }from "antd";
 import CollectionsPage from "./CollectionsPage";
 import SuccessCreate from "./SuccessCreate";
 import axios from 'axios'
+import qs from 'qs';
 
 const { Content } = Layout;
 
@@ -24,7 +25,7 @@ class InputContents extends Component {
     }
 
     success = (ok,inf) => {
-        axios.post(`http://localhost:3000/new?user=${this.props.user}`,inf).then((response) => {
+        axios.post(`http://localhost:3000/default/register?user=${this.props.user}`,qs.stringify({json1:inf})).then((response) => {
             this.setState({isSuccess:ok,info:inf})
         })
     }

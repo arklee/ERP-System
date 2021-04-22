@@ -9,7 +9,7 @@ class LiquidP extends Component {
         const {dataSource} = this.props;
         let count = 0
         dataSource.map(dataItem => {
-            if (dataItem.result==='A' || dataItem.result==='B' || dataItem.result==='C')
+            if (dataItem.degree==='A' || dataItem.degree==='B' || dataItem.degree==='C')
                 count++
             return 0
         })

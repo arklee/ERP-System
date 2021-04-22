@@ -8,16 +8,15 @@ class Attending extends Component {
     state = {dataSource: []}
 
     columns = [
-        {title: '公司ID', dataIndex: 'id', key: 'id',},
-        {title: '公司', dataIndex: 'company', key: 'company',},
-        {title: '入职时间', dataIndex: 'employTime', key: 'employTime'},
-        {title: '缺勤次数', dataIndex: 'lack', key: 'lack',},
+        {title: '公司ID', dataIndex: 'idcompany', key: 'idcompany',},
+        {title: '入职时间', dataIndex: 'induction', key: 'induction'},
+        {title: '缺勤次数', dataIndex: 'absence', key: 'absence',},
         {title: '迟到次数', dataIndex: 'late', key: 'late',},
         {title: '总在职天数', dataIndex: 'days', key: 'days'},
     ];
 
     componentDidMount() {
-        axios.get('http://localhost:3000/attending')
+        axios.get(`http://localhost:3000/attending?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })

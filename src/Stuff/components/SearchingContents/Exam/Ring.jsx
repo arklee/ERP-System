@@ -15,12 +15,12 @@ class Ring extends Component {
         ]
 
         dataSource.map(dataItem => {
-            if (dataItem.result==='A') data[0].value=data[0].value+1
-            else if (dataItem.result==='B') data[1].value=data[1].value+1
-            else if (dataItem.result==='C') data[2].value=data[2].value+1
-            else if (dataItem.result==='D') data[3].value=data[3].value+1
-            else if (dataItem.result==='E') data[4].value=data[4].value+1
-            else if (dataItem.result==='F') data[5].value=data[5].value+1
+            if (dataItem.degree==='A') data[0].value=data[0].value+1
+            else if (dataItem.degree==='B') data[1].value=data[1].value+1
+            else if (dataItem.degree==='C') data[2].value=data[2].value+1
+            else if (dataItem.degree==='D') data[3].value=data[3].value+1
+            else if (dataItem.degree==='E') data[4].value=data[4].value+1
+            else if (dataItem.degree==='F') data[5].value=data[5].value+1
             return 0;
         })
 

@@ -13,7 +13,7 @@ class Company extends Component {
                 <Layout>
                     <Headbar id={this.props.id}/>
                     <Switch>
-                        <Route path="/company/search" component={SearchingContents}/>
+                        <Route path="/company/search" render={() => <SearchingContents user={this.props.id}/>}/>
                         <Redirect to="/company/search"/>
                     </Switch>
                 </Layout>

@@ -30,7 +30,7 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                     id:record.id,
                 }}
             >
-                <Form.Item name="id" label="评价编号">
+                <Form.Item name="idevaluation" label="评价编号">
                     <Input disabled/>
                 </Form.Item>
                 <Form.Item name="statement" label="申诉内容">

@@ -6,11 +6,11 @@ import Ring from './Ring';
 import axios from "axios";
 
 const columns = [
-    {title: '绩效ID', dataIndex: 'id', key: 'id',},
-    {title: 'HR', dataIndex: 'hr', key: 'hr',},
-    {title: '公司', dataIndex: 'company', key: 'company',},
-    {title: '季度', dataIndex: 'season', key: 'season'},
-    {title: '绩效等级', dataIndex: 'result', key: 'result',},
+    {title: '绩效ID', dataIndex: 'idperform', key: 'idperform',},
+    {title: 'HR', dataIndex: 'idhr', key: 'idhr',},
+    {title: '公司ID', dataIndex: 'idcompany', key: 'idcompany',},
+    {title: '季度', dataIndex: 'performtime', key: 'season'},
+    {title: '绩效等级', dataIndex: 'degree', key: 'degree',},
 ];
 
 class Exam extends Component {
@@ -18,7 +18,7 @@ class Exam extends Component {
     state = {dataSource:[]}
 
     componentDidMount() {
-        axios.get('http://localhost:3000/exam')
+        axios.get(`http://localhost:3000/default/search_perform?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })

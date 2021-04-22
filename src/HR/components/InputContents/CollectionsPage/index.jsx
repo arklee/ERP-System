@@ -35,7 +35,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                         <Form.Item name="name" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item name="id" label="身份证号">
+                        <Form.Item name="id" label="身份证号" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                             <Input type="textarea" />
                         </Form.Item>
                         <Form.Item name="sex" label="性别">
@@ -50,7 +50,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                                 <Option value="美国">美国</Option>
                             </Select>
                         </Form.Item>
-                        <Form.Item name="nation" label="民族">
+                        <Form.Item name="ethnicity" label="民族">
                             <Select placeholder="请选择一个民族">
                                 <Option value="汉族">汉族</Option>
                                 <Option value="回族">回族</Option>
@@ -58,7 +58,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                         </Form.Item>
                     </Col>
                     <Col>
-                        <Form.Item name="degree" label="学历">
+                        <Form.Item name="education" label="学历">
                             <Select placeholder="请选择一个学历">
                                 <Option value="小学">小学</Option>
                                 <Option value="初中">初中</Option>
@@ -71,10 +71,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                         <Form.Item name="major" label="专业">
                             <Input />
                         </Form.Item>
-                        <Form.Item name="College" label="毕业学校">
+                        <Form.Item name="school" label="毕业学校">
                             <Input />
                         </Form.Item>
-                        <Form.Item name="graduatedTime" label="毕业时间">
+                        <Form.Item name="graduated_time" label="毕业时间">
                             <DatePicker/>
                         </Form.Item>
                     </Col>

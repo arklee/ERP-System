@@ -12,21 +12,19 @@ class ModifyMyContents extends Component {
     state = {dataSource:[], detail:false, id:0}
 
     columns = [
-        {title: '员工ID', dataIndex: 'stuff_id', key: 'stuff_id',},
-        {title: '员工姓名', dataIndex: 'stuff_name', key: 'stuff_name',},
-        {title: '评价id', dataIndex: 'judge_id', key: 'judge_id',},
+        {title: '员工ID', dataIndex: 'id', key: 'id',},
+        {title: '评价id', dataIndex: 'idevaluation', key: 'idevaluation',},
         {title: '反馈内容', dataIndex: 'feed', key: 'feed',render: () =><>......（点击详情查看）</>},
         {title: '详细信息', dataIndex: 'detail', key: 'detail', render: (text,record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>}
     ];
 
     info =(record) => () => {
         Modal.info({
-            title: '员工'+record.stuff_name+'的反馈内容',
+            title: '员工'+record.id+'的反馈内容',
             content: (
                 <div>
-                    <p>评价id: {record.judge_id}</p>
-                    <p>员工id: {record.stuff_id}</p>
-                    <p>员工姓名: {record.stuff_name}</p>
+                    <p>评价id: {record.idevaluation}</p>
+                    <p>员工id: {record.id}</p>
                     <p>反馈内容: {record.content}</p>
                 </div>
             ),
@@ -35,7 +33,7 @@ class ModifyMyContents extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/hrFeed?user=${this.props.user}`)
+        axios.get(`http://localhost:3000/default/hrFeed?user=${this.props.user}`)
             .then(response => {
                 this.setState({dataSource:response.data.data, rate:response.data.rate})
             })

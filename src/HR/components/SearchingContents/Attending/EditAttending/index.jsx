@@ -25,15 +25,15 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                 layout="vertical"
                 name="form_in_modal"
                 initialValues={{
-                    id:record.id,
-                    lack:record.lack,
+                    idcompany:record.idcompany,
+                    absence:record.absence,
                     late:record.late,
                 }}
             >
-                <Form.Item name="id" label="公司id">
+                <Form.Item name="idcompany" label="公司id">
                     <Input disabled/>
                 </Form.Item>
-                <Form.Item name="lack" label="缺勤次数">
+                <Form.Item name="absence" label="缺勤次数">
                     <InputNumber />
                 </Form.Item>
                 <Form.Item name="late" label="迟到次数">

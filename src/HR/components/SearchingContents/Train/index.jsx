@@ -3,6 +3,7 @@ import {Row, Col, Table, Divider, PageHeader, Button, Modal, message} from 'antd
 import AddTrain from "./AddTrain";
 import axios from 'axios'
 import EditTrain from "./EditTrain";
+import qs from "qs";
 
 export default class Train extends Component {
 
@@ -10,13 +11,13 @@ export default class Train extends Component {
 
     info = (record) => () => {
         Modal.info({
-            title: '培训id为'+record.id+'的详细信息',
+            title: '培训id为'+record.idtrain+'的详细信息',
             content: (
                 <div>
-                    <p>培训id: {record.id}</p>
-                    <p>时间: {record.from}-{record.to}</p>
-                    <p>考核结果: {record.result}</p>
-                    <p>考核内容: {record.detail}</p>
+                    <p>培训id: {record.idtrain}</p>
+                    <p>时间: {record.begin}-{record.to}</p>
+                    <p>考核结果: {record.end}</p>
+                    <p>考核内容: {record.content}</p>
                 </div>
             ),
             onOk() {},
@@ -31,7 +32,7 @@ export default class Train extends Component {
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/train/delete?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/train/delete?idhr=${this.props.user}&id=${this.props.id}&idtrain=${record.id}`)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -39,7 +40,7 @@ export default class Train extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/train/add?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/train/add?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -47,7 +48,7 @@ export default class Train extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/train/edit?user=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/train/edit?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})
@@ -57,18 +58,18 @@ export default class Train extends Component {
     columns = [
         {
             title: '培训ID',
-            dataIndex: 'id',
-            key: 'id',
+            dataIndex: 'idtrain',
+            key: 'idtrain',
         },
         {
             title: '开始时间',
-            dataIndex: 'from',
-            key: 'from',
+            dataIndex: 'begin',
+            key: 'begin',
         },
         {
             title: '结束时间',
-            dataIndex: 'to',
-            key: 'to',
+            dataIndex: 'end',
+            key: 'end',
         },
         {
             title: '考核内容',
@@ -78,8 +79,8 @@ export default class Train extends Component {
         },
         {
             title: '考核结果',
-            dataIndex: 'result',
-            key: 'result',
+            dataIndex: 'grade',
+            key: 'grade',
         },
         {
             title: '详细信息',

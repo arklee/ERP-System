@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Row, Col, Button, Descriptions, Divider, PageHeader, message} from "antd";
 import axios from "axios";
+import qs from 'qs';
 import EditJudge from "./EditJudge";
 import AddJudge from "./AddJudge";
 
@@ -16,7 +17,7 @@ class Judge extends Component {
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/default/evaluation_delete?idhr=${this.props.user}&id=${this.props.id}`,{idevaluation:record.idevaluation})
+        axios.post(`http://localhost:3000/default/evaluation_delete?idhr=${this.props.user}&id=${this.props.id}=&idevaluation=${record.idevaluation}`)
             .then(response => {
                 console.log(record.idevaluation)
                 message.warning('删除成功')
@@ -25,7 +26,7 @@ class Judge extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/default/evaluation_add?idhr=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/evaluation_add?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({judge:response.data})
@@ -33,8 +34,11 @@ class Judge extends Component {
     }
 
     edit = (record) => {
-        console.log({json1:JSON.stringify(record)})
-        axios.post(`http://localhost:3000/default/evaluation_modify?idhr=${this.props.user}&id=${this.props.id}`, {json1:JSON.stringify(record)},{headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+        axios.post(`http://localhost:3000/default/evaluation_modify?idhr=${this.props.user}&id=${this.props.id}`,
+            qs.stringify({
+                json1:JSON.stringify(record)
+            })
+        )
             .then(response => {
                 message.success('修改成功')
                 this.setState({judge:response.data})

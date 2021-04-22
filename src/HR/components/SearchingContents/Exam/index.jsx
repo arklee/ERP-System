@@ -6,6 +6,7 @@ import Ring from './Ring';
 import axios from "axios";
 import EditExam from "./EditExam";
 import AddExam from "./AddExam"
+import qs from "qs";
 
 class Exam extends Component {
 
@@ -19,7 +20,7 @@ class Exam extends Component {
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/default/perform_delete?idhr=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_delete?idhr=${this.props.user}&id=${this.props.id}&idperform=${record.idperform}`)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -27,7 +28,7 @@ class Exam extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/default/perform_add?idhr=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_add?idhr=${this.props.user}&id=${this.props.id}`,  qs.stringify({json1:record}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -35,7 +36,7 @@ class Exam extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/default/perform_edit?idhr=${this.props.user}&id=${this.props.id}`, record)
+        axios.post(`http://localhost:3000/default/perform_edit?idhr=${this.props.user}&id=${this.props.id}`,  qs.stringify({json1:record}))
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

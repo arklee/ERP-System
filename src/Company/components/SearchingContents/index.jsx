@@ -32,8 +32,8 @@ class SearchingContents extends Component {
                     <SidebarQuery handleQuery={this.handleQuery} id={this.props.id}/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
                         <Switch>
-                            <Route path="/company/search/info" component={CompanyInfo}/>
-                            <Route path="/company/search/hr" component={HrAccount}/>
+                            <Route path="/company/search/info" render={() => <CompanyInfo user={this.props.user}/>}/>
+                            <Route path="/company/search/hr" render={() => <HrAccount user={this.props.user}/>}/>
                             <Redirect to="/company/search/info"/>
                         </Switch>
                     </Content>
