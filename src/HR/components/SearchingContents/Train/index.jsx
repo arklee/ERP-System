@@ -25,14 +25,14 @@ export default class Train extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/train?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/train_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/train/delete?idhr=${this.props.user}&id=${this.props.id}&idtrain=${record.id}`)
+        axios.post(`http://localhost:3000/default/train_delete?idhr=${this.props.user}&id=${this.props.id}&idtrain=${record.idtrain}`)
             .then(response => {
                 message.warning('删除成功')
                 this.setState({dataSource:response.data})
@@ -40,7 +40,8 @@ export default class Train extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/train/add?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
+        record.id=this.props.id
+        axios.post(`http://localhost:3000/default/train_add?idhr=${this.props.user}`, qs.stringify({json1:JSON.stringify(record)}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -48,7 +49,8 @@ export default class Train extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/train/edit?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
+        record.id=this.props.id
+        axios.post(`http://localhost:3000/default/train_modify?idhr=${this.props.user}`, qs.stringify({json1:JSON.stringify(record)}))
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})

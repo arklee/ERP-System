@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Breadcrumb, Divider, Layout, PageHeader }from "antd";
 import CollectionsPage from "./CollectionsPage";
 import SuccessCreate from "./SuccessCreate";
-/*import axios from 'axios'
-import qs from 'qs';*/
+import axios from 'axios'
+import qs from 'qs';
 
 const { Content } = Layout;
 
@@ -24,14 +24,11 @@ class InputContents extends Component {
         }
     }
 
-    /*success = (ok,inf) => {
-        axios.post(`http://localhost:3000/default/register?user=${this.props.user}`,qs.stringify({json1:inf})).then((response) => {
+    success = (ok,inf) => {
+        axios.post(`http://localhost:3000/default/register_user`,qs.stringify({json1:JSON.stringify(inf)}))
+            .then((response) => {
             this.setState({isSuccess:ok,info:inf})
         })
-    }*/
-
-    success = (ok,inf) => {
-        this.setState({isSuccess:ok,info:inf})
     }
 
     render() {

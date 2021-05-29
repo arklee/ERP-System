@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Descriptions, Badge, PageHeader, Divider} from 'antd';
+import {Button, Descriptions, Badge, PageHeader, Divider} from 'antd';
 import axios from 'axios'
 
 class Document extends Component {
@@ -40,8 +40,9 @@ class Document extends Component {
                     title="人才档案管理"
                     subTitle="记录员工的个人信息、学历、重大事件"
                 />
+                <Button danger>申诉</Button>
                 <Divider />
-                <Descriptions title="李翔用户信息" bordered>
+                <Descriptions title="张三的用户信息" bordered>
                     <Descriptions.Item label="姓名">{info.username}</Descriptions.Item>
                     <Descriptions.Item label="性别">{info.sex}</Descriptions.Item>
                     <Descriptions.Item label="国籍">{info.nationality}</Descriptions.Item>

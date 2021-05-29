@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Divider, PageHeader, Table} from "antd";
+import {Button, Divider, PageHeader, Table} from "antd";
 import DemoLiquid from "./DemoLiquid";
 import axios from "axios";
 
@@ -16,7 +16,7 @@ class Attending extends Component {
     ];
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/attending?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/attendance_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
@@ -32,6 +32,7 @@ class Attending extends Component {
                     title="考勤管理"
                     subTitle="记录员工在职期间考勤情况"
                 />
+                <Button danger>申诉</Button>
                 <DemoLiquid dataSource={dataSource}/>
                 <Divider/>
                 <Table dataSource={dataSource} columns={this.columns}/>

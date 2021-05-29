@@ -24,7 +24,8 @@ class Attending extends Component {
     ];
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/attending/edit?user=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
+        record.id = this.props.id
+        axios.post(`/default/attendance_modify?idhr=${this.props.user}`, qs.stringify({json1:JSON.stringify(record)}))
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})
@@ -32,7 +33,7 @@ class Attending extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/attending?id=${this.props.id}`)
+        axios.get(`/default/attendance_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })

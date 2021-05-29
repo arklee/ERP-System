@@ -22,7 +22,7 @@ export default class Train extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/train?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/train_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
@@ -73,6 +73,7 @@ export default class Train extends Component {
                     title="人才培训管理"
                     subTitle="记录员工所接受的所有培训内容"
                 />
+                <Button danger>申诉</Button>
                 <Divider />
                 <Table dataSource={dataSource} columns={this.columns}/>
             </>

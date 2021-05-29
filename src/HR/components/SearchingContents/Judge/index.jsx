@@ -10,14 +10,14 @@ class Judge extends Component {
     state = {judge:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/default/evaluation_inquiry?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/search_evaluation?id=${this.props.id}`)
             .then(response => {
                 this.setState({judge:response.data})
             })
     }
 
     delete = (record) => () => {
-        axios.post(`http://localhost:3000/default/evaluation_delete?idhr=${this.props.user}&id=${this.props.id}=&idevaluation=${record.idevaluation}`)
+        axios.post(`http://localhost:3000/default/evaluation_delete?idhr=${this.props.user}&id=${this.props.id}&idevaluation=${record.idevaluation}`)
             .then(response => {
                 console.log(record.idevaluation)
                 message.warning('删除成功')
@@ -26,7 +26,13 @@ class Judge extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/default/evaluation_add?idhr=${this.props.user}&id=${this.props.id}`, qs.stringify({json1:record}))
+        record.id=this.props.id
+        axios.post(`http://localhost:3000/default/evaluation_add`,
+            qs.stringify({
+                idhr:this.props.user,
+                json1:JSON.stringify(record)
+            })
+        )
             .then(response => {
                 message.success('添加成功')
                 this.setState({judge:response.data})
@@ -34,8 +40,10 @@ class Judge extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/default/evaluation_modify?idhr=${this.props.user}&id=${this.props.id}`,
+        record.id=this.props.id
+        axios.post(`http://localhost:3000/default/evaluation_modify`,
             qs.stringify({
+                idhr:this.props.user,
                 json1:JSON.stringify(record)
             })
         )
@@ -74,7 +82,8 @@ class Judge extends Component {
                                     </Col>
                                 </Row>
                                 <Descriptions title={"评价编号："+item.idevaluation} bordered>
-                                    <Descriptions.Item  label="HR ID" span={2}>{item.idhr}</Descriptions.Item>
+                                    <Descriptions.Item  label="HR ID">{item.idhr}</Descriptions.Item>
+                                    <Descriptions.Item  label="评分">{item.credit}</Descriptions.Item>
                                     <Descriptions.Item  label="HR 信誉分">{item.hrscore}</Descriptions.Item>
                                     <Descriptions.Item label="评价">{item.evaluationinclusion}</Descriptions.Item>
                                 </Descriptions>

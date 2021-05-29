@@ -40,32 +40,32 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                         </Form.Item>
                         <Form.Item name="sex" label="性别">
                             <Radio.Group>
-                                <Radio value="男">男</Radio>
-                                <Radio value="女">女</Radio>
+                                <Radio value="male">男</Radio>
+                                <Radio value="female">女</Radio>
                             </Radio.Group>
                         </Form.Item>
                         <Form.Item name="nationality" label="国籍">
                             <Select placeholder="请选择一个国家">
-                                <Option value="中国">中国</Option>
-                                <Option value="美国">美国</Option>
+                                <Option value="China">中国</Option>
+                                <Option value="USA">美国</Option>
                             </Select>
                         </Form.Item>
                         <Form.Item name="ethnicity" label="民族">
                             <Select placeholder="请选择一个民族">
-                                <Option value="汉族">汉族</Option>
-                                <Option value="回族">回族</Option>
+                                <Option value="Han">汉族</Option>
+                                <Option value="Hui">回族</Option>
                             </Select>
                         </Form.Item>
                     </Col>
                     <Col>
                         <Form.Item name="education" label="学历">
                             <Select placeholder="请选择一个学历">
-                                <Option value="小学">小学</Option>
-                                <Option value="初中">初中</Option>
-                                <Option value="高中">高中</Option>
-                                <Option value="本科">本科</Option>
-                                <Option value="硕士">硕士</Option>
-                                <Option value="博士">博士</Option>
+                                <Option value="1">小学</Option>
+                                <Option value="2">初中</Option>
+                                <Option value="3">高中</Option>
+                                <Option value="4">本科</Option>
+                                <Option value="5">硕士</Option>
+                                <Option value="6">博士</Option>
                             </Select>
                         </Form.Item>
                         <Form.Item name="major" label="专业">

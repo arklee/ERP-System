@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Divider, Row, Col, PageHeader, Table} from 'antd';
+import {Divider, Row, Col, PageHeader, Table, Button} from 'antd';
 import { StatisticCard } from '@ant-design/pro-card';
 import LiquidP from './LiquidP';
 import Ring from './Ring';
@@ -18,7 +18,7 @@ class Exam extends Component {
     state = {dataSource:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/default/search_perform?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/perform_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
@@ -34,6 +34,7 @@ class Exam extends Component {
                     title="绩效管理"
                     subTitle="记录员工在职期间绩效考核"
                 />
+                <Button danger>申诉</Button>
                 <Divider/>
                 <Row gutter={[64, 16]}>
                     <Col span={12}>

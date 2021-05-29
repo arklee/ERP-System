@@ -26,31 +26,31 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
                 name="form_in_modal"
                 initialValues={{
                     sex: hrInfo.sex,
-                    name: hrInfo.name,
+                    hrname: hrInfo.hrname,
                     number: hrInfo.number,
-                    company: hrInfo.company,
-                    idCard: hrInfo.idCard,
+                    idcompany: hrInfo.idcompany,
+                    id: hrInfo.id,
                     email: hrInfo.email,
                     password: hrInfo.password,
                 }}
             >
-                <Form.Item name="idCard" label="身份证号">
+                <Form.Item name="id" label="账号id">
                     <Input disabled/>
                 </Form.Item>
-                <Form.Item name="name" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
+                <Form.Item name="hrname" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
                     <Input/>
                 </Form.Item>
                 <Form.Item name="sex" label="性别">
                     <Radio.Group>
-                        <Radio value="男">男</Radio>
-                        <Radio value="女">女</Radio>
+                        <Radio value="male">男</Radio>
+                        <Radio value="female">女</Radio>
                     </Radio.Group>
                 </Form.Item>
                 <Form.Item name="number" label="电话号码">
                     <Input />
                 </Form.Item>
-                <Form.Item name="company" label="公司">
-                    <Input />
+                <Form.Item name="idcompany" label="公司ID">
+                    <Input disabled/>
                 </Form.Item>
                 <Form.Item name="email" label="邮箱">
                     <Input />
@@ -69,7 +69,7 @@ const MyCollectionsPage = (props) => {
     const onCreate = (values) => {
         //console.log('Received values of form: ', values);
         setVisible(false);
-        props.success(true,values)
+        props.edit(values)
     };
 
     return (

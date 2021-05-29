@@ -30,7 +30,6 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                 initialValues={{
                     idperform:record.idperform,
                     idhr:record.idhr,
-                    company:record.company,
                     degree:record.degree,
                 }}
             >
@@ -38,9 +37,6 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                     <Input/>
                 </Form.Item>
                 <Form.Item name="idhr" label="HR">
-                    <Input/>
-                </Form.Item>
-                <Form.Item name="company" label="公司">
                     <Input/>
                 </Form.Item>
                 <Form.Item name="performtime" label="季度">

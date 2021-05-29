@@ -5,8 +5,7 @@ import {
     HourglassFilled,
     IdcardFilled,
     ScheduleFilled,
-    StarFilled,
-    LockFilled
+    StarFilled
 } from '@ant-design/icons';
 import { withRouter } from "react-router-dom";
 
@@ -42,7 +41,6 @@ class Sidebar extends Component {
                     <Menu.Item key="exam" icon={<IdcardFilled />}>绩效信息管理</Menu.Item>
                     <Menu.Item key="attending" icon={<ScheduleFilled />}>考勤信息管理</Menu.Item>
                     <Menu.Item key="judge" icon={<StarFilled />}>评价管理</Menu.Item>
-                    <Menu.Item key="overall" icon={<LockFilled />}>总览</Menu.Item>
                 </Menu>
             </Sider>
         )

@@ -9,7 +9,7 @@ class Judge extends Component {
     state = {judge:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/default/evaluation_inquiry?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/search_evaluation?id=${this.props.id}`)
             .then(response => {
                 this.setState({judge:response.data})
             })
@@ -18,7 +18,7 @@ class Judge extends Component {
     edit = (record) => {
         axios.post(`http://localhost:3000/default/postState?id=${this.props.id}`, qs.stringify({json1:record}))
             .then(response => {
-                message.success('申诉成功')
+                message.success('评价成功')
                 this.setState({judge:response.data})
             })
     }

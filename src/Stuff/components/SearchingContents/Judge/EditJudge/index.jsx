@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input} from 'antd';
-
-const { TextArea } = Input;
+import { Button, Modal, Form, Input, Rate} from 'antd';
 
 const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
 
@@ -33,8 +31,8 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                 <Form.Item name="idevaluation" label="评价编号">
                     <Input disabled/>
                 </Form.Item>
-                <Form.Item name="statement" label="申诉内容">
-                    <TextArea/>
+                <Form.Item name="statement" label="评分">
+                    <Rate/>
                 </Form.Item>
             </Form>
         </Modal>
@@ -52,7 +50,7 @@ const EditJudge = (props) => {
 
     return (
         <div>
-            <Button danger onClick={() => {setVisible(true);}}>申诉</Button>
+            <Button danger onClick={() => {setVisible(true);}}>评价</Button>
             <CollectionCreateForm
                 record={props.record}
                 visible={visible}

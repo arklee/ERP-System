@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Breadcrumb,Divider, Layout, Table} from "antd";
+import {Breadcrumb, Button, Divider, Layout, Modal, Table} from "antd";
 import InfoHeader from "./InfoHeader";
 import axios from "axios";
 
@@ -10,10 +10,27 @@ class ModifyMyContents extends Component {
     state = {dataSource:[], detail:false, id:0}
 
     columns = [
-        {title: 'HR ID', dataIndex: 'hr_id', key: 'hr_id',},
-        {title: '评价id', dataIndex: 'judge_id', key: 'judge_id',},
-        {title: '详细信息', dataIndex: 'content', key: 'content'}
+        {title: '评价id', dataIndex: 'idevaluation', key: 'idevaluation',},
+        //{title: '评分', dataIndex: 'credit', key: 'credit',},
+        {title: '评价内容', dataIndex: 'feed', key: 'feed',render: () =><>......（点击详情查看）</>},
+        {title: '我的评分', dataIndex: 'score', key: 'score',},
+        {title: '详细信息', dataIndex: 'evaluationinclusion', key: 'evaluationinclusion', render: (text,record) => <Button type="primary" onClick={this.info(record)}>查看详情</Button>}
     ];
+
+    info =(record) => () => {
+        Modal.info({
+            title: '员工'+record.id+'的反馈内容',
+            content: (
+                <div>
+                    <p>评价id: {record.idevaluation}</p>
+                    <p>员工id: {record.id}</p>
+                    {/*<p>评分: {record.credit}</p>*/}
+                    <p>评价内容: {record.evaluationinclusion}</p>
+                </div>
+            ),
+            onOk() {},
+        });
+    }
 
     componentDidMount() {
         axios.get(`http://localhost:3000/StuffFeed?user=${this.props.user}`)
@@ -34,7 +51,7 @@ class ModifyMyContents extends Component {
                     <InfoHeader/>
                     <Divider/>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                        <div className="feed-title">我发起的申诉</div>
+                        <div className="feed-title">我做出的评分</div>
                         <Table dataSource={dataSource} columns={this.columns}/>
                     </Content>
                 </Layout>

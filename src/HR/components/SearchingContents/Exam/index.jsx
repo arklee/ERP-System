@@ -13,7 +13,7 @@ class Exam extends Component {
     state = {dataSource:[]}
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/default/search_perform?id=${this.props.id}`)
+        axios.get(`http://localhost:3000/default/perform_inquiry?id=${this.props.id}`)
             .then(response => {
                 this.setState({dataSource:response.data})
             })
@@ -28,7 +28,9 @@ class Exam extends Component {
     }
 
     add = (record) => {
-        axios.post(`http://localhost:3000/default/perform_add?idhr=${this.props.user}&id=${this.props.id}`,  qs.stringify({json1:record}))
+        console.log(record.performtime)
+        record.id = this.props.id
+        axios.post(`http://localhost:3000/default/perform_add?idhr=${this.props.user}`,qs.stringify({json1:JSON.stringify(record)}))
             .then(response => {
                 message.success('添加成功')
                 this.setState({dataSource:response.data})
@@ -36,7 +38,8 @@ class Exam extends Component {
     }
 
     edit = (record) => {
-        axios.post(`http://localhost:3000/default/perform_edit?idhr=${this.props.user}&id=${this.props.id}`,  qs.stringify({json1:record}))
+        record.id = this.props.id
+        axios.post(`http://localhost:3000/default/perform_modify?idhr=${this.props.user}`,qs.stringify({json1:JSON.stringify(record)}))
             .then(response => {
                 message.success('修改成功')
                 this.setState({dataSource:response.data})
@@ -46,7 +49,6 @@ class Exam extends Component {
     columns = [
         {title: '绩效ID', dataIndex: 'idperform', key: 'idperform',},
         {title: 'HR', dataIndex: 'idhr', key: 'idhr',},
-        {title: '公司ID', dataIndex: 'idcompany', key: 'idcompany',},
         {title: '季度', dataIndex: 'performtime', key: 'season'},
         {title: '绩效等级', dataIndex: 'degree', key: 'degree',},
         {

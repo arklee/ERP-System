@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Button, Modal, Form, Input, Radio} from 'antd';
+import {Button, Modal, Form, Input} from 'antd';
 import {PlusSquareFilled} from '@ant-design/icons';
 
 const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
@@ -7,8 +7,8 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
     return (
         <Modal
             visible={visible}
-            title="录入新员工"
-            okText="录入"
+            title="修改我的信息"
+            okText="修改"
             cancelText="取消"
             onCancel={onCancel}
             onOk={() => {
@@ -25,35 +25,24 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel, hrInfo}) => {
                 layout="vertical"
                 name="form_in_modal"
                 initialValues={{
-                    sex: hrInfo.sex,
-                    name: hrInfo.name,
-                    number: hrInfo.number,
-                    company: hrInfo.company,
+                    hrname: hrInfo.hrname,
+                    idcompany: hrInfo.idcompany,
                     idCard: hrInfo.idCard,
                     email: hrInfo.email,
                     password: hrInfo.password,
                 }}
             >
-                <Form.Item name="name" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
-                    <Input/>
+                <Form.Item name="hrname" label="姓名" rules={[{required: true, message: 'Please input the title of collection!',},]}>
+                    <Input disabled/>
                 </Form.Item>
                 <Form.Item name="idCard" label="身份证号">
-                    <Input type="textarea" />
+                    <Input type="textarea" disabled/>
                 </Form.Item>
-                <Form.Item name="sex" label="性别">
-                    <Radio.Group>
-                        <Radio value="男">男</Radio>
-                        <Radio value="女">女</Radio>
-                    </Radio.Group>
-                </Form.Item>
-                <Form.Item name="number" label="电话号码">
-                    <Input />
-                </Form.Item>
-                <Form.Item name="company" label="公司">
-                    <Input />
+                <Form.Item name="idcompany" label="公司">
+                    <Input disabled/>
                 </Form.Item>
                 <Form.Item name="email" label="邮箱">
-                    <Input />
+                    <Input disabled/>
                 </Form.Item>
                 <Form.Item name="password" label="密码">
                     <Input type="password"/>

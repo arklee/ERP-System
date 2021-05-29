@@ -30,7 +30,7 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                     idevaluation:record.idevaluation,
                     idhr:record.idhr,
                     evaluationinclusion:record.evaluationinclusion,
-                    hrscore:record.hrscore
+                    credit:record.credit
                 }}
             >
                 <Form.Item name="idevaluation" label="评价编号">
@@ -39,11 +39,11 @@ const CollectionCreateForm = ( {record, visible, onCreate, onCancel }) => {
                 <Form.Item name="idhr" label="HR ID">
                     <Input disabled/>
                 </Form.Item>
-                <Form.Item name="hrscore" label="HR 信誉分">
-                    <Input disabled/>
-                </Form.Item>
                 <Form.Item name="evaluationinclusion" label="评价内容">
                     <TextArea/>
+                </Form.Item>
+                <Form.Item name="credit" label="评分">
+                    <Input/>
                 </Form.Item>
             </Form>
         </Modal>

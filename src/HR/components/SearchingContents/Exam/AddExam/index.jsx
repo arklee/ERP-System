@@ -33,9 +33,6 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 <Form.Item name="idhr" label="HR">
                     <Input/>
                 </Form.Item>
-                <Form.Item name="company" label="公司">
-                    <Input/>
-                </Form.Item>
                 <Form.Item name="performtime" label="季度">
                     <DatePicker/>
                 </Form.Item>

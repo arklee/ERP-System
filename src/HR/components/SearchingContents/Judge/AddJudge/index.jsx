@@ -33,6 +33,9 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 <Form.Item name="evaluationinclusion" label="评价内容">
                     <TextArea/>
                 </Form.Item>
+                <Form.Item name="credit" label="评分">
+                    <Input/>
+                </Form.Item>
             </Form>
         </Modal>
     );
